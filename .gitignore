@@ -1,0 +1,14 @@
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/
+
+# Antigravity / AI
+.agents/
+openspec/
+
+# No need to push the setup reference script
+google_apps_script.gs
