@@ -235,13 +235,6 @@ function buildVeritasCard(p) {
           <span class="card-price">₹${p.price}</span>
         </div>
 
-        <button class="ingredient-toggle" id="toggle-${p.id}" aria-expanded="false" aria-controls="table-${p.id}">
-          Full Ingredient List <span class="toggle-arrow" aria-hidden="true">▾</span>
-        </button>
-        <div class="ingredient-table-wrap" id="table-${p.id}" role="region">
-          ${buildIngredientTable(p.ingredients)}
-        </div>
-
         <div class="card-cta-wrap">
           <button class="btn-buy-now" id="buy-${p.id}" data-product-id="${p.id}">
             Buy Now →
@@ -277,32 +270,6 @@ function buildSknCard(p) {
         <div class="card-price-row">
           <span class="card-price">₹${p.price}</span>
         </div>
-
-        <a class="qr-badge" href="${escHtml(p.qrUrl)}" target="_blank" rel="noopener noreferrer" id="qr-${p.id}" aria-label="Scan to see how this product works">
-          <svg class="qr-icon-svg" viewBox="0 0 100 100" fill="currentColor">
-            <rect x="10" y="10" width="30" height="30"/>
-            <rect x="15" y="15" width="20" height="20" fill="white"/>
-            <rect x="20" y="20" width="10" height="10"/>
-            <rect x="60" y="10" width="30" height="30"/>
-            <rect x="65" y="15" width="20" height="20" fill="white"/>
-            <rect x="70" y="20" width="10" height="10"/>
-            <rect x="10" y="60" width="30" height="30"/>
-            <rect x="15" y="65" width="20" height="20" fill="white"/>
-            <rect x="20" y="70" width="10" height="10"/>
-            <rect x="60" y="60" width="10" height="10"/>
-            <rect x="75" y="60" width="10" height="10"/>
-            <rect x="60" y="75" width="10" height="15"/>
-            <rect x="75" y="75" width="15" height="10"/>
-            <rect x="45" y="10" width="10" height="10"/>
-            <rect x="45" y="25" width="10" height="10"/>
-            <rect x="10" y="45" width="10" height="10"/>
-            <rect x="25" y="45" width="10" height="10"/>
-            <rect x="45" y="45" width="10" height="10"/>
-            <rect x="60" y="45" width="10" height="10"/>
-            <rect x="80" y="45" width="10" height="10"/>
-          </svg>
-          <span class="qr-label">Scan to see how it works →<br/><span style="font-weight:400;opacity:0.8">See the actives, the science, in 60 sec</span></span>
-        </a>
 
         <div class="card-cta-wrap">
           <button class="btn-buy-now" id="buy-${p.id}" data-product-id="${p.id}">
