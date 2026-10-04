@@ -148,7 +148,7 @@ function renderPreview() {
   let previewContent = '';
   if (surveyState.product === 'veritas') {
     previewContent = `
-      <div class="preview-carousel" style="background-color: #c0c9e6;">
+      <div class="preview-carousel">
         <img src="assets/images%20of%20concepts/IMG_1295.PNG" alt="Veritas Concept 1">
         <img src="assets/images%20of%20concepts/IMG_1296.PNG" alt="Veritas Concept 2">
         <img src="assets/images%20of%20concepts/IMG_1297.PNG" alt="Veritas Concept 3">
@@ -160,7 +160,7 @@ function renderPreview() {
     `;
   } else if (surveyState.product === 'skn') {
     previewContent = `
-      <div class="preview-carousel" style="background-color: #b4bed9;">
+      <div class="preview-carousel">
         <img src="assets/images%20of%20concepts/IMG_1286.PNG" alt="Skn Concept 1">
         <img src="assets/images%20of%20concepts/IMG_1288.PNG" alt="Skn Concept 2">
         <img src="assets/images%20of%20concepts/IMG_1289.PNG" alt="Skn Concept 3">
