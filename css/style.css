@@ -1288,7 +1288,8 @@ button { cursor: pointer; font-family: var(--font-ui); border: none; background:
   scroll-snap-type: x mandatory;
   scrollbar-width: none;
   -ms-overflow-style: none;
-  margin: -10px calc(-1 * var(--space-xl)) 10px;
+  margin: calc(-1 * var(--space-xl)) calc(-1 * var(--space-xl)) 10px;
+  border-radius: var(--radius-xl) var(--radius-xl) 0 0;
   align-items: center;
 }
 .preview-carousel::-webkit-scrollbar {
@@ -1317,7 +1318,7 @@ button { cursor: pointer; font-family: var(--font-ui); border: none; background:
 }
 @media (max-width: 767px) {
   .preview-carousel {
-    margin: -10px calc(-1 * var(--space-md)) 10px;
+    margin: calc(-1 * var(--space-lg)) calc(-1 * var(--space-md)) 10px;
   }
 }
 

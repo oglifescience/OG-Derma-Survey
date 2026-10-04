@@ -72,8 +72,7 @@ const PRODUCTS = [
     reviews: 3241,
     image: 'https://images-static.nykaa.com/media/catalog/product/d/a/da25edbCERAV00000010_1.jpg?tr=w-500',
     cardClass: 'card--market',
-    ribbon: 'Bestseller',
-    ribbonClass: 'card-ribbon--bestseller',
+    ribbon: null,
   },
 
   // ── COMPETITOR: THE MINIMALIST ────────────────────────────
@@ -90,8 +89,7 @@ const PRODUCTS = [
     reviews: 5812,
     image: 'https://images-static.nykaa.com/media/catalog/product/3/9/394e9c5MINIM00000019_a.jpg?tr=w-500',
     cardClass: 'card--market',
-    ribbon: 'Bestseller',
-    ribbonClass: 'card-ribbon--bestseller',
+    ribbon: null,
   },
 
   // ── COMPETITOR: DOT & KEY ─────────────────────────────────
