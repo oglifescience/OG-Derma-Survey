@@ -235,11 +235,6 @@ function buildVeritasCard(p) {
           <span class="card-price">₹${p.price}</span>
         </div>
 
-        <div class="card-cta-wrap">
-          <button class="btn-buy-now" id="buy-${p.id}" data-product-id="${p.id}">
-            Buy Now →
-          </button>
-        </div>
       </div>
     </article>`;
 }
@@ -271,11 +266,6 @@ function buildSknCard(p) {
           <span class="card-price">₹${p.price}</span>
         </div>
 
-        <div class="card-cta-wrap">
-          <button class="btn-buy-now" id="buy-${p.id}" data-product-id="${p.id}">
-            Buy Now →
-          </button>
-        </div>
       </div>
     </article>`;
 }
@@ -307,11 +297,6 @@ function buildMarketCard(p) {
           <span class="rating-text">${p.rating} (${p.reviews.toLocaleString('en-IN')})</span>
         </div>
         <div class="card-price-row">${priceHtml}</div>
-        <div class="card-cta-wrap">
-          <button class="btn-buy-now" id="cart-${p.id}" data-product-id="${p.id}">
-            Buy Now →
-          </button>
-        </div>
       </div>
     </article>`;
 }
@@ -330,10 +315,14 @@ function renderProducts(products) {
 
 // ── ATTACH EVENT LISTENERS AFTER RENDER ─────────────────────
 function attachCardListeners() {
-  // ALL product buttons → open survey modal (Buy Now + I want this)
-  document.querySelectorAll('.btn-buy-now').forEach(btn => {
-    btn.addEventListener('click', () => {
-      const pid = btn.dataset.productId;
+  // Whole card → open survey modal
+  document.querySelectorAll('.product-card').forEach(card => {
+    card.addEventListener('click', (e) => {
+      // Don't open if they clicked the wishlist button or ingredient toggle
+      if (e.target.closest('.card-wishlist') || e.target.closest('.ingredient-toggle')) return;
+      
+      // The id format is "card-{pid}"
+      const pid = card.id.replace('card-', '');
       const product = PRODUCTS.find(p => p.id === pid);
       if (product) openModal(pid, product);
     });

@@ -127,10 +127,31 @@ function openModal(productId, product) {
     modal.classList.add('visible');
   });
 
-  renderDemographics();
+  renderPreview();
 }
 
 // ── INTERNAL FUNCTIONS ───────────────────────────────────────
+
+// SCREEN -1: Preview (Buy Now)
+function renderPreview() {
+  surveyState.screen = 'preview';
+
+  progressFill.style.width = '0%';
+  progressLabel.textContent = 'Preview';
+
+  questionText.textContent = 'Ready to try something new?';
+  preamble.hidden = false;
+
+  optionsContainer.innerHTML = \`
+    <div style="text-align:center; padding: 20px 0;">
+      <p style="margin-bottom: 20px;">Click below to claim your early access and purchase.</p>
+    </div>
+  \`;
+
+  btnBack.style.visibility = 'hidden';
+  btnNext.disabled = false;
+  btnNext.textContent = 'Buy Now →';
+}
 
 // SCREEN 0: Demographics (Name + Age Range)
 function renderDemographics() {
@@ -194,7 +215,7 @@ function renderDemographics() {
     });
   });
 
-  btnBack.style.visibility = 'hidden';
+  btnBack.style.visibility = 'visible';
   validateDemo();
   btnNext.textContent = 'Next →';
 }
@@ -284,6 +305,12 @@ function selectOption(questionId, value, qIndex) {
 }
 
 function nextQuestion() {
+  // Preview screen -> go to Demographics
+  if (surveyState.screen === 'preview') {
+    renderDemographics();
+    return;
+  }
+
   // Demographics screen → go to Q1
   if (surveyState.screen === 'demo') {
     if (!surveyState.name || !surveyState.age) return;
@@ -306,6 +333,12 @@ function nextQuestion() {
 }
 
 function prevQuestion() {
+  // On demo → go back to preview
+  if (surveyState.screen === 'demo') {
+    renderPreview();
+    return;
+  }
+
   // On Q1 → go back to demographics
   if (surveyState.screen === 'questions' && surveyState.currentQ === 0) {
     renderDemographics();
