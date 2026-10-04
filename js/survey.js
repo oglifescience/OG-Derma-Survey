@@ -145,15 +145,22 @@ function renderPreview() {
   let previewContent = '';
   if (surveyState.product === 'veritas') {
     previewContent = `
-      <div style="margin: 0 calc(-1 * var(--space-xl)); text-align:center;">
-        <img src="assets/images/ALl_ingridents_acbe_oily_skin.png" style="width: 100%; display: block;" alt="Veritas Concept Details">
+      <div class="preview-carousel">
+        <img src="assets/images%20of%20concepts/IMG_1295.PNG" alt="Veritas Concept 1">
+        <img src="assets/images%20of%20concepts/IMG_1296.PNG" alt="Veritas Concept 2">
+        <img src="assets/images%20of%20concepts/IMG_1297.PNG" alt="Veritas Concept 3">
       </div>
+      <div class="carousel-hint">Swipe left to see more →</div>
     `;
   } else if (surveyState.product === 'skn') {
     previewContent = `
-      <div style="margin: 0 calc(-1 * var(--space-xl)); text-align:center;">
-        <img src="assets/images/Simplified_skincare_acne_oily_skin.png" style="width: 100%; display: block;" alt="Skn Concept Details">
+      <div class="preview-carousel">
+        <img src="assets/images%20of%20concepts/IMG_1286.PNG" alt="Skn Concept 1">
+        <img src="assets/images%20of%20concepts/IMG_1288.PNG" alt="Skn Concept 2">
+        <img src="assets/images%20of%20concepts/IMG_1289.PNG" alt="Skn Concept 3">
+        <img src="assets/images%20of%20concepts/IMG_1287.PNG" alt="Skn Concept 4">
       </div>
+      <div class="carousel-hint">Swipe left to see more →</div>
     `;
   } else {
     previewContent = `

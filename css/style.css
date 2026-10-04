@@ -1280,3 +1280,41 @@ button { cursor: pointer; font-family: var(--font-ui); border: none; background:
 @media (max-width: 767px) {
   .filters-wrap { top: 86px; }
 }
+
+/* ── PREVIEW CAROUSEL ────────────────────────────────────────── */
+.preview-carousel {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  margin: -10px calc(-1 * var(--space-xl)) 10px;
+}
+.preview-carousel::-webkit-scrollbar {
+  display: none;
+}
+.preview-carousel img {
+  flex: 0 0 100%;
+  width: 100%;
+  scroll-snap-align: start;
+  display: block;
+}
+.carousel-hint {
+  text-align: center;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--color-muted);
+  margin-top: 0;
+  margin-bottom: 20px;
+  animation: pulse-hint 2s infinite;
+}
+@keyframes pulse-hint {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 1; }
+}
+@media (max-width: 767px) {
+  .preview-carousel {
+    margin: -10px calc(-1 * var(--space-md)) 10px;
+  }
+}
+
