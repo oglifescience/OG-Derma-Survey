@@ -139,14 +139,31 @@ function renderPreview() {
   progressFill.style.width = '0%';
   progressLabel.textContent = 'Preview';
 
-  questionText.textContent = 'Ready to try something new?';
-  preamble.hidden = false;
+  questionText.textContent = '';
+  preamble.hidden = true;
 
-  optionsContainer.innerHTML = `
-    <div style="text-align:center; padding: 20px 0;">
-      <p style="margin-bottom: 20px;">Click below to claim your early access and purchase.</p>
-    </div>
-  `;
+  let previewContent = '';
+  if (surveyState.product === 'veritas') {
+    previewContent = `
+      <div style="margin: 0 calc(-1 * var(--space-xl)); text-align:center;">
+        <img src="assets/images/ALl_ingridents_acbe_oily_skin.png" style="width: 100%; display: block;" alt="Veritas Concept Details">
+      </div>
+    `;
+  } else if (surveyState.product === 'skn') {
+    previewContent = `
+      <div style="margin: 0 calc(-1 * var(--space-xl)); text-align:center;">
+        <img src="assets/images/Simplified_skincare_acne_oily_skin.png" style="width: 100%; display: block;" alt="Skn Concept Details">
+      </div>
+    `;
+  } else {
+    previewContent = `
+      <div style="text-align:center; padding: 20px 0;">
+        <img src="${escHtml(surveyState.productData.image)}" style="width: 100%; max-height: 350px; object-fit: contain; border-radius: 8px; margin-bottom: 20px;" alt="Product Details">
+      </div>
+    `;
+  }
+
+  optionsContainer.innerHTML = previewContent;
 
   btnBack.style.visibility = 'hidden';
   btnNext.disabled = false;
