@@ -1289,6 +1289,7 @@ button { cursor: pointer; font-family: var(--font-ui); border: none; background:
   scrollbar-width: none;
   -ms-overflow-style: none;
   margin: -10px calc(-1 * var(--space-xl)) 10px;
+  align-items: center;
 }
 .preview-carousel::-webkit-scrollbar {
   display: none;
@@ -1296,6 +1297,8 @@ button { cursor: pointer; font-family: var(--font-ui); border: none; background:
 .preview-carousel img {
   flex: 0 0 100%;
   width: 100%;
+  max-height: 65vh;
+  object-fit: contain;
   scroll-snap-align: start;
   display: block;
 }

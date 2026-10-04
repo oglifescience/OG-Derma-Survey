@@ -118,6 +118,9 @@ function openModal(productId, product) {
   // Show question area, hide thank you
   questionArea.hidden    = false;
   thankyouScreen.hidden  = true;
+  document.getElementById('modal-progress-wrap').style.display = 'block';
+  preamble.style.display = 'flex';
+  document.getElementById('modal-product-summary').style.display = 'flex';
 
   // Show modal
   modal.hidden = false;
@@ -136,11 +139,11 @@ function openModal(productId, product) {
 function renderPreview() {
   surveyState.screen = 'preview';
 
-  progressFill.style.width = '0%';
-  progressLabel.textContent = 'Preview';
+  document.getElementById('modal-progress-wrap').style.display = 'none';
+  preamble.style.display = 'none';
+  document.getElementById('modal-product-summary').style.display = 'none'; // hide top summary to give max space for preview
 
   questionText.textContent = '';
-  preamble.hidden = true;
 
   let previewContent = '';
   if (surveyState.product === 'veritas') {
@@ -151,6 +154,9 @@ function renderPreview() {
         <img src="assets/images%20of%20concepts/IMG_1297.PNG" alt="Veritas Concept 3">
       </div>
       <div class="carousel-hint">Swipe left to see more →</div>
+      <p style="font-size: 0.9rem; color: var(--color-text-secondary); text-align: center; margin-bottom: 20px;">
+        A revolutionary cleanser powered by Succinic Acid, Zinc PCA, and LHA to gently clear pores without stripping your skin. Nothing hidden, nothing hyped.
+      </p>
     `;
   } else if (surveyState.product === 'skn') {
     previewContent = `
@@ -161,6 +167,9 @@ function renderPreview() {
         <img src="assets/images%20of%20concepts/IMG_1287.PNG" alt="Skn Concept 4">
       </div>
       <div class="carousel-hint">Swipe left to see more →</div>
+      <p style="font-size: 0.9rem; color: var(--color-text-secondary); text-align: center; margin-bottom: 20px;">
+        A minimalist powerhouse for oily, acne-prone skin. Simplified, dermatologist-approved ingredients that shut down oil rebound and keep you glowing.
+      </p>
     `;
   } else {
     previewContent = `
@@ -182,11 +191,13 @@ function renderDemographics() {
   surveyState.screen = 'demo';
 
   // Progress: step 0 of total (4 questions + 1 demo screen = 5 total steps)
+  document.getElementById('modal-progress-wrap').style.display = 'block';
+  document.getElementById('modal-product-summary').style.display = 'flex';
   progressFill.style.width = '0%';
   progressLabel.textContent = 'Step 1 of 6 — About you';
 
   questionText.textContent = 'Quick intro before we start ✦';
-  preamble.hidden = false;
+  preamble.style.display = 'flex';
 
   // Build demographics UI
   const AGE_OPTIONS = ['15 – 20', '20 – 25', '25 – 30', 'Others'];
@@ -266,7 +277,7 @@ function renderQuestion(index) {
   questionText.focus();
 
   // Hide preamble once questions start
-  preamble.hidden = true;
+  preamble.style.display = 'none';
 
   // Render options
   optionsContainer.innerHTML = '';
