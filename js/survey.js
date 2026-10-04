@@ -142,11 +142,11 @@ function renderPreview() {
   questionText.textContent = 'Ready to try something new?';
   preamble.hidden = false;
 
-  optionsContainer.innerHTML = \`
+  optionsContainer.innerHTML = `
     <div style="text-align:center; padding: 20px 0;">
       <p style="margin-bottom: 20px;">Click below to claim your early access and purchase.</p>
     </div>
-  \`;
+  `;
 
   btnBack.style.visibility = 'hidden';
   btnNext.disabled = false;
