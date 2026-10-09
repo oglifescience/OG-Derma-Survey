@@ -333,4 +333,21 @@ function shuffle(arr) {
 }
 
 // ── INIT ─────────────────────────────────────────────────────
-renderProducts(shuffle(PRODUCTS));
+function getOrderedProducts() {
+  const shuffled = shuffle(PRODUCTS);
+  // Ensure 'concept' products (Veritas and Skn) are never placed after the 4th spot
+  // If a concept product ends up at index 4 or higher, swap it with a market product from the top 4
+  for (let i = 4; i < shuffled.length; i++) {
+    if (shuffled[i].type === 'concept') {
+      const swapIndex = shuffled.findIndex((p, idx) => p.type === 'market' && idx < 4);
+      if (swapIndex !== -1) {
+        const temp = shuffled[i];
+        shuffled[i] = shuffled[swapIndex];
+        shuffled[swapIndex] = temp;
+      }
+    }
+  }
+  return shuffled;
+}
+
+renderProducts(getOrderedProducts());
