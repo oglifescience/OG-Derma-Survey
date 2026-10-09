@@ -7,7 +7,7 @@ const PRODUCTS = [
   // ── CONCEPT PRODUCT 1: VERITAS ────────────────────────────
   {
     id: 'veritas',
-    brand: 'Veritas',
+    brand: 'OG Derma',
     name: 'The Acne Cleanser For Oily Skin',
     subtitle: 'Succinic Acid 1.5% + LHA 0.3%',
     tagline: 'No BS. Just actives.',
@@ -40,7 +40,7 @@ const PRODUCTS = [
   // ── CONCEPT PRODUCT 2: SKN. ───────────────────────────────
   {
     id: 'skn',
-    brand: 'Skn.',
+    brand: 'OG Derma',
     name: 'Oily + Acne Cleanser (01)',
     subtitle: 'Made For: Oily Skin · Frequent Breakouts',
     tagline: 'Your skin. Simplified.',
