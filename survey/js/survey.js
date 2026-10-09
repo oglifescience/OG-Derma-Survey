@@ -65,24 +65,24 @@ const surveyState = {
 };
 
 // ── DOM REFS ─────────────────────────────────────────────────
-const modal            = document.getElementById('checkout-modal');
-const modalPanel       = modal.querySelector('.modal-panel');
-const closeBtn         = document.getElementById('modal-close-btn');
-const modalThumb       = document.getElementById('modal-thumb');
-const modalBrand       = document.getElementById('modal-brand');
+const modal = document.getElementById('checkout-modal');
+const modalPanel = modal.querySelector('.modal-panel');
+const closeBtn = document.getElementById('modal-close-btn');
+const modalThumb = document.getElementById('modal-thumb');
+const modalBrand = document.getElementById('modal-brand');
 const modalProductName = document.getElementById('modal-product-name');
-const modalPriceEl     = document.getElementById('modal-price');
-const progressFill     = document.getElementById('modal-progress-fill');
-const progressLabel    = document.getElementById('modal-progress-label');
-const questionText     = document.getElementById('modal-question-text');
+const modalPriceEl = document.getElementById('modal-price');
+const progressFill = document.getElementById('modal-progress-fill');
+const progressLabel = document.getElementById('modal-progress-label');
+const questionText = document.getElementById('modal-question-text');
 const optionsContainer = document.getElementById('modal-options');
-const btnBack          = document.getElementById('btn-back');
-const btnNext          = document.getElementById('btn-next');
-const questionArea     = document.getElementById('modal-question-area');
-const thankyouScreen   = document.getElementById('modal-thankyou');
-const thankyouProduct  = document.getElementById('thankyou-product');
-const btnDone          = document.getElementById('btn-done');
-const preamble         = document.getElementById('modal-preamble');
+const btnBack = document.getElementById('btn-back');
+const btnNext = document.getElementById('btn-next');
+const questionArea = document.getElementById('modal-question-area');
+const thankyouScreen = document.getElementById('modal-thankyou');
+const thankyouProduct = document.getElementById('thankyou-product');
+const btnDone = document.getElementById('btn-done');
+const preamble = document.getElementById('modal-preamble');
 
 // ── PUBLIC API ───────────────────────────────────────────────
 
@@ -94,15 +94,15 @@ const preamble         = document.getElementById('modal-preamble');
  */
 function openModal(productId, product) {
   // Reset state
-  surveyState.product     = productId;
+  surveyState.product = productId;
   surveyState.productData = product;
-  surveyState.currentQ    = 0;
-  surveyState.answers     = {};
+  surveyState.currentQ = 0;
+  surveyState.answers = {};
 
   // Populate product summary header
-  modalThumb.src          = product.image;
-  modalThumb.alt          = product.name;
-  modalBrand.textContent  = product.brand;
+  modalThumb.src = product.image;
+  modalThumb.alt = product.name;
+  modalBrand.textContent = product.brand;
   modalProductName.textContent = product.name;
   modalPriceEl.textContent = '₹' + product.price;
 
@@ -116,8 +116,8 @@ function openModal(productId, product) {
   preamble.hidden = false;
 
   // Show question area, hide thank you
-  questionArea.hidden    = false;
-  thankyouScreen.hidden  = true;
+  questionArea.hidden = false;
+  thankyouScreen.hidden = true;
   document.getElementById('modal-progress-wrap').style.display = 'block';
   preamble.style.display = 'flex';
   document.getElementById('modal-product-summary').style.display = 'flex';
@@ -163,7 +163,7 @@ function renderPreview() {
       </div>
       <div class="carousel-hint">Swipe left to see more →</div>
       <p style="font-size: 0.9rem; color: var(--color-text-secondary); text-align: center; margin-bottom: 0;">
-        What you see is what you get. Zero secrets, zero fluff. Just the exact formula your skin actually needs.
+        What you see is what you get. Zero secrets, zero fluff. Just the exact formula your skin needs to remove acne and control oil.
       </p>
     `;
   } else if (surveyState.product === 'skn') {
@@ -275,7 +275,7 @@ function renderDemographics() {
 function validateDemo() {
   // Name required (at least 1 char) + age required
   const nameOk = surveyState.name.length > 0;
-  const ageOk  = surveyState.age.length > 0;
+  const ageOk = surveyState.age.length > 0;
   btnNext.disabled = !(nameOk && ageOk);
 }
 
@@ -410,21 +410,21 @@ async function submitSurvey() {
 
   const { answers, productData } = surveyState;
   const payload = {
-    name:    surveyState.name,
-    age:     surveyState.age,
+    name: surveyState.name,
+    age: surveyState.age,
     product: `${productData.brand} — ${productData.name}`,
-    q1:      answers.q1 || '',
-    q2:      answers.q2 || '',
-    q3:      answers.q3 || '',
-    q4:      answers.q4 || '',
+    q1: answers.q1 || '',
+    q2: answers.q2 || '',
+    q3: answers.q3 || '',
+    q4: answers.q4 || '',
   };
 
   try {
     await fetch(SCRIPT_URL, {
-      method:  'POST',
+      method: 'POST',
       // Apps Script requires text/plain to skip CORS preflight on static sites
       headers: { 'Content-Type': 'text/plain' },
-      body:    JSON.stringify(payload),
+      body: JSON.stringify(payload),
     });
   } catch (_err) {
     // Cross-origin responses are opaque — submission still lands in the Sheet.
@@ -439,7 +439,7 @@ function showThankYou() {
   progressLabel.textContent = 'Complete ✓';
 
   // Transition screens
-  questionArea.hidden   = true;
+  questionArea.hidden = true;
   thankyouScreen.hidden = false;
 
   const p = surveyState.productData;
@@ -454,12 +454,12 @@ function closeModal() {
   setTimeout(() => {
     modal.hidden = true;
     // Full reset for next open
-    questionArea.hidden   = false;
+    questionArea.hidden = false;
     thankyouScreen.hidden = true;
     progressFill.style.width = '0%';
-    surveyState.screen  = 'demo';
-    surveyState.name    = '';
-    surveyState.age     = '';
+    surveyState.screen = 'demo';
+    surveyState.name = '';
+    surveyState.age = '';
     surveyState.answers = {};
     surveyState.currentQ = 0;
   }, 320);
