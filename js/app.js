@@ -10,7 +10,7 @@ const PRODUCTS = [
     brand: 'OG Derma',
     name: 'The Acne Cleanser For Oily Skin',
     subtitle: 'Succinic Acid 1.5% + LHA 0.3%',
-    tagline: 'No BS. Just actives.',
+    tagline: 'No gatekeeping. Just facts.',
     type: 'concept',
     price: 499,
     originalPrice: null,
@@ -73,8 +73,8 @@ const PRODUCTS = [
     image: 'https://images-static.nykaa.com/media/catalog/product/3/9/394e9c5MINIM00000019_a.jpg?tr=w-500',
     carouselImages: [
       'https://images-static.nykaa.com/media/catalog/product/3/9/394e9c5MINIM00000019_a.jpg?tr=w-500',
-      'https://images-static.nykaa.com/media/catalog/product/8/1/81fedc4MINIM00000019_2.jpg?tr=w-500',
-      'https://images-static.nykaa.com/media/catalog/product/8/1/81fedc4MINIM00000019_1.jpeg?tr=w-500'
+      'https://images-static.nykaa.com/media/catalog/product/8/1/81fedc4MINIM00000019_1.jpeg?tr=w-500',
+      'https://images-static.nykaa.com/media/catalog/product/8/1/81fedc4MINIM00000019_2.jpg?tr=w-500'
     ],
     cardClass: 'card--market',
     ribbon: null,
@@ -92,9 +92,10 @@ const PRODUCTS = [
     discount: '17% OFF',
     rating: 4.2,
     reviews: 2104,
-    image: 'https://www.dotandkey.com/cdn/shop/files/175ml.jpg?format=webp&quality=85&v=1781243494&width=480',
+    image: 'assets/market_products/dotkey_1.png',
     carouselImages: [
-      'https://www.dotandkey.com/cdn/shop/files/175ml.jpg?format=webp&quality=85&v=1781243494&width=480'
+      'assets/market_products/dotkey_1.png',
+      'assets/market_products/dotkey_2.png'
     ],
     cardClass: 'card--market',
     ribbon: null,
@@ -112,9 +113,10 @@ const PRODUCTS = [
     discount: '15% OFF',
     rating: 4.2,
     reviews: 4315,
-    image: 'https://thedermaco.com/cdn/shop/files/6th_1.jpg?v=1772703076&width=1080',
+    image: 'assets/market_products/derma_1.png',
     carouselImages: [
-      'https://thedermaco.com/cdn/shop/files/6th_1.jpg?v=1772703076&width=1080'
+      'assets/market_products/derma_1.png',
+      'assets/market_products/derma_2.png'
     ],
     cardClass: 'card--market',
     ribbon: null,
