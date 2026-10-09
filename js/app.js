@@ -71,6 +71,11 @@ const PRODUCTS = [
     rating: 4.3,
     reviews: 5812,
     image: 'https://images-static.nykaa.com/media/catalog/product/3/9/394e9c5MINIM00000019_a.jpg?tr=w-500',
+    carouselImages: [
+      'https://images-static.nykaa.com/media/catalog/product/3/9/394e9c5MINIM00000019_a.jpg?tr=w-500',
+      'https://images-static.nykaa.com/media/catalog/product/3/9/394e9c5MINIM00000019_b.jpg?tr=w-500',
+      'https://images-static.nykaa.com/media/catalog/product/3/9/394e9c5MINIM00000019_c.jpg?tr=w-500'
+    ],
     cardClass: 'card--market',
     ribbon: null,
   },
@@ -88,6 +93,11 @@ const PRODUCTS = [
     rating: 4.2,
     reviews: 2104,
     image: 'https://images-static.nykaa.com/media/catalog/product/9/d/9d1c275DOTKE00000186_1.jpg?tr=w-500',
+    carouselImages: [
+      'https://images-static.nykaa.com/media/catalog/product/9/d/9d1c275DOTKE00000186_1.jpg?tr=w-500',
+      'https://images-static.nykaa.com/media/catalog/product/9/d/9d1c275DOTKE00000186_2.jpg?tr=w-500',
+      'https://images-static.nykaa.com/media/catalog/product/9/d/9d1c275DOTKE00000186_3.jpg?tr=w-500'
+    ],
     cardClass: 'card--market',
     ribbon: null,
   },
@@ -105,6 +115,11 @@ const PRODUCTS = [
     rating: 4.2,
     reviews: 4315,
     image: 'https://images-static.nykaa.com/media/catalog/product/3/d/3d3a22aTHEDE00000342_1aa.jpg?tr=w-500',
+    carouselImages: [
+      'https://images-static.nykaa.com/media/catalog/product/3/d/3d3a22aTHEDE00000342_1aa.jpg?tr=w-500',
+      'https://images-static.nykaa.com/media/catalog/product/3/d/3d3a22aTHEDE00000342_2.jpg?tr=w-500',
+      'https://images-static.nykaa.com/media/catalog/product/3/d/3d3a22aTHEDE00000342_3.jpg?tr=w-500'
+    ],
     cardClass: 'card--market',
     ribbon: null,
   },

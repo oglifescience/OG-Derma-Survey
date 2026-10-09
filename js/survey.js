@@ -182,10 +182,21 @@ function renderPreview() {
       </p>
     `;
   } else {
+    const images = surveyState.productData.carouselImages || [
+      surveyState.productData.image,
+      surveyState.productData.image,
+      surveyState.productData.image
+    ];
     previewContent += `
-      <div style="text-align:center; padding: 20px 0;">
-        <img src="${escHtml(surveyState.productData.image)}" style="width: 100%; max-height: 350px; object-fit: contain; border-radius: 8px; margin-bottom: 0;" alt="Product Details">
+      <div class="preview-carousel">
+        <img src="${escHtml(images[0])}" alt="Product Image 1">
+        <img src="${escHtml(images[1])}" alt="Product Image 2">
+        <img src="${escHtml(images[2])}" alt="Product Image 3">
       </div>
+      <div class="carousel-hint">Swipe left to see more →</div>
+      <p style="font-size: 0.9rem; color: var(--color-text-secondary); text-align: center; margin-bottom: 0;">
+        ${escHtml(surveyState.productData.tagline || '')}
+      </p>
     `;
   }
 
