@@ -145,21 +145,26 @@ function renderPreview() {
 
   questionText.textContent = '';
 
-  let previewContent = '';
+  let previewContent = `
+    <div style="text-align: center; margin-top: -15px; margin-bottom: 15px;">
+      <h2 style="font-size: 1.25rem; font-weight: 700; color: var(--color-text); margin: 0;">${escHtml(surveyState.productData.brand)}</h2>
+      <p style="font-size: 0.9rem; color: var(--color-text-secondary); margin: 4px 0 0 0;">${escHtml(surveyState.productData.name)}</p>
+    </div>
+  `;
   if (surveyState.product === 'veritas') {
-    previewContent = `
+    previewContent += `
       <div class="preview-carousel">
         <img src="assets/images%20of%20concepts/IMG_1295.jpg" alt="Veritas Concept 1">
         <img src="assets/images%20of%20concepts/IMG_1296.jpg" alt="Veritas Concept 2">
         <img src="assets/images%20of%20concepts/IMG_1297.jpg" alt="Veritas Concept 3">
       </div>
       <div class="carousel-hint">Swipe left to see more →</div>
-      <p style="font-size: 0.9rem; color: var(--color-text-secondary); text-align: center; margin-bottom: 20px;">
+      <p style="font-size: 0.9rem; color: var(--color-text-secondary); text-align: center; margin-bottom: 0;">
         A revolutionary cleanser powered by Succinic Acid, Zinc PCA, and LHA to gently clear pores without stripping your skin. Nothing hidden, nothing hyped.
       </p>
     `;
   } else if (surveyState.product === 'skn') {
-    previewContent = `
+    previewContent += `
       <div class="preview-carousel">
         <img src="assets/images%20of%20concepts/IMG_1286.jpg" alt="Skn Concept 1">
         <img src="assets/images%20of%20concepts/IMG_1288.jpg" alt="Skn Concept 2">
@@ -167,14 +172,14 @@ function renderPreview() {
         <img src="assets/images%20of%20concepts/IMG_1287.jpg" alt="Skn Concept 4">
       </div>
       <div class="carousel-hint">Swipe left to see more →</div>
-      <p style="font-size: 0.9rem; color: var(--color-text-secondary); text-align: center; margin-bottom: 20px;">
+      <p style="font-size: 0.9rem; color: var(--color-text-secondary); text-align: center; margin-bottom: 0;">
         A minimalist powerhouse for oily, acne-prone skin. Simplified, dermatologist-approved ingredients that shut down oil rebound and keep you glowing.
       </p>
     `;
   } else {
-    previewContent = `
+    previewContent += `
       <div style="text-align:center; padding: 20px 0;">
-        <img src="${escHtml(surveyState.productData.image)}" style="width: 100%; max-height: 350px; object-fit: contain; border-radius: 8px; margin-bottom: 20px;" alt="Product Details">
+        <img src="${escHtml(surveyState.productData.image)}" style="width: 100%; max-height: 350px; object-fit: contain; border-radius: 8px; margin-bottom: 0;" alt="Product Details">
       </div>
     `;
   }
