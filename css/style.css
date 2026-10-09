@@ -1306,10 +1306,10 @@ button { cursor: pointer; font-family: var(--font-ui); border: none; background:
   display: block;
 }
 .preview-carousel img.landscape-img {
-  width: auto !important;
+  width: 100% !important;
   max-width: none !important;
   object-fit: contain !important;
-  flex: 0 0 auto !important;
+  flex: 0 0 100% !important;
 }
 .carousel-hint {
   text-align: center;
