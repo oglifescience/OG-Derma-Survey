@@ -1305,6 +1305,9 @@ button { cursor: pointer; font-family: var(--font-ui); border: none; background:
   scroll-snap-align: start;
   display: block;
 }
+.preview-carousel img:nth-child(3) {
+  object-fit: contain !important;
+}
 .carousel-hint {
   text-align: center;
   font-size: 0.75rem;
