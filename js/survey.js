@@ -149,9 +149,9 @@ function renderPreview() {
   if (surveyState.product === 'veritas') {
     previewContent = `
       <div class="preview-carousel">
-        <img src="assets/images%20of%20concepts/IMG_1295.PNG" alt="Veritas Concept 1">
-        <img src="assets/images%20of%20concepts/IMG_1296.PNG" alt="Veritas Concept 2">
-        <img src="assets/images%20of%20concepts/IMG_1297.PNG" alt="Veritas Concept 3">
+        <img src="assets/images%20of%20concepts/IMG_1295.jpg" alt="Veritas Concept 1">
+        <img src="assets/images%20of%20concepts/IMG_1296.jpg" alt="Veritas Concept 2">
+        <img src="assets/images%20of%20concepts/IMG_1297.jpg" alt="Veritas Concept 3">
       </div>
       <div class="carousel-hint">Swipe left to see more →</div>
       <p style="font-size: 0.9rem; color: var(--color-text-secondary); text-align: center; margin-bottom: 20px;">
@@ -161,10 +161,10 @@ function renderPreview() {
   } else if (surveyState.product === 'skn') {
     previewContent = `
       <div class="preview-carousel">
-        <img src="assets/images%20of%20concepts/IMG_1286.PNG" alt="Skn Concept 1">
-        <img src="assets/images%20of%20concepts/IMG_1288.PNG" alt="Skn Concept 2">
-        <img src="assets/images%20of%20concepts/IMG_1289.PNG" alt="Skn Concept 3">
-        <img src="assets/images%20of%20concepts/IMG_1287.PNG" alt="Skn Concept 4">
+        <img src="assets/images%20of%20concepts/IMG_1286.jpg" alt="Skn Concept 1">
+        <img src="assets/images%20of%20concepts/IMG_1288.jpg" alt="Skn Concept 2">
+        <img src="assets/images%20of%20concepts/IMG_1289.jpg" alt="Skn Concept 3">
+        <img src="assets/images%20of%20concepts/IMG_1287.jpg" alt="Skn Concept 4">
       </div>
       <div class="carousel-hint">Swipe left to see more →</div>
       <p style="font-size: 0.9rem; color: var(--color-text-secondary); text-align: center; margin-bottom: 20px;">
