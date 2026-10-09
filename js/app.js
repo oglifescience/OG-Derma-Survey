@@ -70,11 +70,11 @@ const PRODUCTS = [
     discount: '23% OFF',
     rating: 4.3,
     reviews: 5812,
-    image: 'https://images-static.nykaa.com/media/catalog/product/3/9/394e9c5MINIM00000019_a.jpg?tr=w-500',
+    image: 'assets/market_products/minimalist_1.jpg',
     carouselImages: [
-      'https://images-static.nykaa.com/media/catalog/product/3/9/394e9c5MINIM00000019_a.jpg?tr=w-500',
-      'https://images-static.nykaa.com/media/catalog/product/8/1/81fedc4MINIM00000019_1.jpeg?tr=w-500',
-      'https://images-static.nykaa.com/media/catalog/product/8/1/81fedc4MINIM00000019_2.jpg?tr=w-500'
+      'assets/market_products/minimalist_1.jpg',
+      'assets/market_products/minimalist_2.jpg',
+      'assets/market_products/minimalist_3.jpg'
     ],
     cardClass: 'card--market',
     ribbon: null,
@@ -92,10 +92,10 @@ const PRODUCTS = [
     discount: '17% OFF',
     rating: 4.2,
     reviews: 2104,
-    image: 'assets/market_products/dotkey_1.png',
+    image: 'assets/market_products/dotkey_1.jpg',
     carouselImages: [
-      'assets/market_products/dotkey_1.png',
-      'assets/market_products/dotkey_2.png'
+      'assets/market_products/dotkey_1.jpg',
+      'assets/market_products/dotkey_2.jpg'
     ],
     cardClass: 'card--market',
     ribbon: null,
@@ -113,10 +113,10 @@ const PRODUCTS = [
     discount: '15% OFF',
     rating: 4.2,
     reviews: 4315,
-    image: 'assets/market_products/derma_1.png',
+    image: 'assets/market_products/derma_1.jpg',
     carouselImages: [
-      'assets/market_products/derma_1.png',
-      'assets/market_products/derma_2.png'
+      'assets/market_products/derma_1.jpg',
+      'assets/market_products/derma_2.jpg'
     ],
     cardClass: 'card--market',
     ribbon: null,
