@@ -1305,10 +1305,11 @@ button { cursor: pointer; font-family: var(--font-ui); border: none; background:
   scroll-snap-align: start;
   display: block;
 }
-.preview-carousel img:nth-child(3) {
+.preview-carousel img.landscape-img {
   width: auto !important;
   max-width: none !important;
   object-fit: contain !important;
+  flex: 0 0 auto !important;
 }
 .carousel-hint {
   text-align: center;
