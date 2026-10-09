@@ -1306,6 +1306,8 @@ button { cursor: pointer; font-family: var(--font-ui); border: none; background:
   display: block;
 }
 .preview-carousel img:nth-child(3) {
+  width: auto !important;
+  max-width: none !important;
   object-fit: contain !important;
 }
 .carousel-hint {

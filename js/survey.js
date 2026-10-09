@@ -157,7 +157,7 @@ function renderPreview() {
       <div class="preview-carousel">
         <img src="assets/images%20of%20concepts/IMG_1295.jpg" alt="Veritas Concept 1">
         <img src="assets/images%20of%20concepts/IMG_1296.jpg" alt="Veritas Concept 2">
-        <img src="assets/images%20of%20concepts/IMG_1297.jpg" alt="Veritas Concept 3" style="object-fit: contain !important; background: rgb(229, 239, 255) !important;">
+        <img src="assets/images%20of%20concepts/IMG_1297.jpg" alt="Veritas Concept 3" style="width: auto !important; max-width: none !important; object-fit: contain !important;">
       </div>
       <div class="carousel-hint">Swipe left to see more →</div>
       <p style="font-size: 0.9rem; color: var(--color-text-secondary); text-align: center; margin-bottom: 0;">
@@ -169,7 +169,7 @@ function renderPreview() {
       <div class="preview-carousel">
         <img src="assets/images%20of%20concepts/IMG_1286.jpg" alt="Skn Concept 1">
         <img src="assets/images%20of%20concepts/IMG_1288.jpg" alt="Skn Concept 2">
-        <img src="assets/images%20of%20concepts/IMG_1289.jpg" alt="Skn Concept 3" style="object-fit: contain !important; background: rgb(224, 233, 255) !important;">
+        <img src="assets/images%20of%20concepts/IMG_1289.jpg" alt="Skn Concept 3" style="width: auto !important; max-width: none !important; object-fit: contain !important;">
         <img src="assets/images%20of%20concepts/IMG_1287.jpg" alt="Skn Concept 4">
       </div>
       <div class="carousel-hint">Swipe left to see more →</div>
