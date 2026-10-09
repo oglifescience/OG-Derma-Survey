@@ -143,10 +143,11 @@ function renderPreview() {
   preamble.style.display = 'none';
   document.getElementById('modal-product-summary').style.display = 'none'; // hide top summary to give max space for preview
 
+  questionText.style.display = 'none';
   questionText.textContent = '';
 
   let previewContent = `
-    <div style="text-align: center; margin-top: -15px; margin-bottom: 15px;">
+    <div style="text-align: center; margin-top: -20px; margin-bottom: 5px;">
       <h2 style="font-size: 1.25rem; font-weight: 700; color: var(--color-text); margin: 0;">${escHtml(surveyState.productData.brand)}</h2>
       <p style="font-size: 0.9rem; color: var(--color-text-secondary); margin: 4px 0 0 0;">${escHtml(surveyState.productData.name)}</p>
     </div>
@@ -185,6 +186,7 @@ function renderPreview() {
   }
 
   optionsContainer.innerHTML = previewContent;
+  optionsContainer.style.marginBottom = '16px';
 
   btnBack.style.visibility = 'hidden';
   btnNext.disabled = false;
@@ -201,6 +203,7 @@ function renderDemographics() {
   progressFill.style.width = '0%';
   progressLabel.textContent = 'Step 1 of 6 — About you';
 
+  questionText.style.display = 'block';
   questionText.textContent = 'Quick intro before we start ✦';
   preamble.style.display = 'flex';
 
@@ -278,6 +281,7 @@ function renderQuestion(index) {
   progressFill.style.width = pct + '%';
   progressLabel.textContent = `Step ${index + 2} of 6 — Question ${index + 1} of ${total}`;
 
+  questionText.style.display = 'block';
   questionText.textContent = q.text;
   questionText.focus();
 
@@ -286,6 +290,7 @@ function renderQuestion(index) {
 
   // Render options
   optionsContainer.innerHTML = '';
+  optionsContainer.style.marginBottom = '';
   q.options.forEach((optText, i) => {
     const optId = `opt-${index}-${i}`;
     const div = document.createElement('label');
