@@ -178,7 +178,7 @@ function renderPreview() {
       </div>
       <div class="carousel-hint">Swipe left to see more →</div>
       <p style="font-size: 0.9rem; color: var(--color-text-secondary); text-align: center; margin-bottom: 0; line-height: 1.5;">
-        Skincare was never supposed to be THIS complicated. We dissolve the gunk sitting inside your pores and prevent oil rebound. Zero fluff. 100% facts.
+        Skincare was never supposed to be this complicated. We just clear your pores and stop oil rebound. Zero fluff. 100% facts.
       </p>
     `;
   } else {
