@@ -157,7 +157,9 @@ function renderPreview() {
       <div class="preview-carousel">
         <img src="assets/images%20of%20concepts/IMG_1295.jpg" alt="Veritas Concept 1">
         <img src="assets/images%20of%20concepts/IMG_1296.jpg" alt="Veritas Concept 2">
-        <img src="assets/images%20of%20concepts/IMG_1297.jpg" alt="Veritas Concept 3" class="landscape-img" style="background-color: rgb(229, 239, 255);">
+        <div class="landscape-wrapper" style="flex: 0 0 100%; height: 50vh; overflow: hidden; scroll-snap-align: start; background-color: rgb(229, 239, 255);">
+          <img src="assets/images%20of%20concepts/IMG_1297.jpg" alt="Veritas Concept 3" style="width: 114%; height: 100%; object-fit: contain; margin-left: -7%; display: block;">
+        </div>
       </div>
       <div class="carousel-hint">Swipe left to see more →</div>
       <p style="font-size: 0.9rem; color: var(--color-text-secondary); text-align: center; margin-bottom: 0;">
@@ -170,7 +172,9 @@ function renderPreview() {
         <img src="assets/images%20of%20concepts/IMG_1286.jpg" alt="Skn Concept 1">
         <img src="assets/images%20of%20concepts/IMG_1288.jpg" alt="Skn Concept 2">
         <img src="assets/images%20of%20concepts/IMG_1289.jpg" alt="Skn Concept 3">
-        <img src="assets/images%20of%20concepts/IMG_1287.jpg" alt="Skn Concept 4" class="landscape-img" style="background-color: rgb(224, 233, 255);">
+        <div class="landscape-wrapper" style="flex: 0 0 100%; height: 50vh; overflow: hidden; scroll-snap-align: start; background-color: rgb(224, 233, 255);">
+          <img src="assets/images%20of%20concepts/IMG_1287.jpg" alt="Skn Concept 4" style="width: 114%; height: 100%; object-fit: contain; margin-left: -7%; display: block;">
+        </div>
       </div>
       <div class="carousel-hint">Swipe left to see more →</div>
       <p style="font-size: 0.9rem; color: var(--color-text-secondary); text-align: center; margin-bottom: 0;">
