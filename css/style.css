@@ -1241,7 +1241,8 @@ button { cursor: pointer; font-family: var(--font-ui); border: none; background:
   .modal-overlay { padding: 0; align-items: flex-end; }
   .modal-panel {
     border-radius: var(--radius-xl) var(--radius-xl) 0 0;
-    max-height: 95vh;
+    max-height: 85vh;
+    max-height: 90dvh;
     padding: var(--space-lg) var(--space-md);
   }
 
@@ -1297,8 +1298,10 @@ button { cursor: pointer; font-family: var(--font-ui); border: none; background:
 .preview-carousel img {
   flex: 0 0 100%;
   width: 100%;
-  max-height: 65vh;
-  object-fit: contain;
+  height: 50vh;
+  max-height: 450px;
+  object-fit: cover;
+  object-position: center;
   scroll-snap-align: start;
   display: block;
 }
