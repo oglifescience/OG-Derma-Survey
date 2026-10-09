@@ -178,13 +178,7 @@ function buildVeritasCard(p) {
       <div class="card-body">
         <p class="card-brand">${escHtml(p.brand)}</p>
         <p class="card-name">${escHtml(p.name)}</p>
-        <p class="card-sub">${escHtml(p.tagline)}</p>
-
-        <div class="ingredient-badge-row">
-          <span class="ingredient-badge">Succinic Acid 1.5%</span>
-          <span class="ingredient-badge">LHA 0.3%</span>
-          <span class="ingredient-badge">Zinc PCA 0.5%</span>
-        </div>
+        <p class="card-sub">${escHtml(p.subtitle)}</p>
 
         <div class="card-rating">
           ${renderStars(p.rating)}
