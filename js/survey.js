@@ -158,7 +158,7 @@ function renderPreview() {
         <img src="assets/images%20of%20concepts/IMG_1295.jpg" alt="Veritas Concept 1">
         <img src="assets/images%20of%20concepts/IMG_1296.jpg" alt="Veritas Concept 2">
         <div class="landscape-wrapper" style="flex: 0 0 100%; height: 50vh; overflow: hidden; scroll-snap-align: start; background-color: rgb(229, 239, 255); display: flex; align-items: center; justify-content: center;">
-          <img src="assets/images%20of%20concepts/IMG_1297.jpg" alt="Veritas Concept 3" style="width: 100%; height: 100%; object-fit: contain; transform: scale(1.14);">
+          <img src="assets/images%20of%20concepts/IMG_1297.jpg" alt="Veritas Concept 3" style="width: 100%; height: 100%; object-fit: contain; transform: scale(1.24);">
         </div>
       </div>
       <div class="carousel-hint">Swipe left to see more →</div>
@@ -173,7 +173,7 @@ function renderPreview() {
         <img src="assets/images%20of%20concepts/IMG_1288.jpg" alt="Skn Concept 2">
         <img src="assets/images%20of%20concepts/IMG_1289.jpg" alt="Skn Concept 3">
         <div class="landscape-wrapper" style="flex: 0 0 100%; height: 50vh; overflow: hidden; scroll-snap-align: start; background-color: rgb(224, 233, 255); display: flex; align-items: center; justify-content: center;">
-          <img src="assets/images%20of%20concepts/IMG_1287.jpg" alt="Skn Concept 4" style="width: 100%; height: 100%; object-fit: contain; transform: scale(1.14);">
+          <img src="assets/images%20of%20concepts/IMG_1287.jpg" alt="Skn Concept 4" style="width: 100%; height: 100%; object-fit: contain; transform: scale(1.24);">
         </div>
       </div>
       <div class="carousel-hint">Swipe left to see more →</div>
