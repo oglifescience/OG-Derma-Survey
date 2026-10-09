@@ -70,11 +70,11 @@ const PRODUCTS = [
     discount: '23% OFF',
     rating: 4.3,
     reviews: 5812,
-    image: 'assets/market_products/minimalist_1.png',
+    image: 'https://images-static.nykaa.com/media/catalog/product/3/9/394e9c5MINIM00000019_a.jpg?tr=w-500',
     carouselImages: [
-      'assets/market_products/minimalist_1.png',
-      'assets/market_products/minimalist_2.png',
-      'assets/market_products/minimalist_3.png'
+      'https://images-static.nykaa.com/media/catalog/product/3/9/394e9c5MINIM00000019_a.jpg?tr=w-500',
+      'https://images-static.nykaa.com/media/catalog/product/8/1/81fedc4MINIM00000019_2.jpg?tr=w-500',
+      'https://images-static.nykaa.com/media/catalog/product/8/1/81fedc4MINIM00000019_1.jpeg?tr=w-500'
     ],
     cardClass: 'card--market',
     ribbon: null,
