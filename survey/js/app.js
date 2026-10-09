@@ -9,7 +9,7 @@ const PRODUCTS = [
     id: 'veritas',
     brand: 'OG Derma',
     name: 'The Acne Cleanser For Oily Skin',
-    subtitle: 'Your right to know what and how it works',
+    subtitle: 'Your right to know what works and how it works',
     tagline: 'No gatekeeping. Just facts.',
     type: 'concept',
     price: 349,
@@ -274,7 +274,7 @@ function attachCardListeners() {
     card.addEventListener('click', (e) => {
       // Don't open if they clicked the wishlist button or ingredient toggle
       if (e.target.closest('.card-wishlist') || e.target.closest('.ingredient-toggle')) return;
-      
+
       // The id format is "card-{pid}"
       const pid = card.id.replace('card-', '');
       const product = PRODUCTS.find(p => p.id === pid);
