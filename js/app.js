@@ -70,11 +70,11 @@ const PRODUCTS = [
     discount: '23% OFF',
     rating: 4.3,
     reviews: 5812,
-    image: 'https://images-static.nykaa.com/media/catalog/product/3/9/394e9c5MINIM00000019_a.jpg?tr=w-500',
+    image: 'assets/market_products/minimalist_1.png',
     carouselImages: [
-      'https://images-static.nykaa.com/media/catalog/product/3/9/394e9c5MINIM00000019_a.jpg?tr=w-500',
-      'https://images-static.nykaa.com/media/catalog/product/3/9/394e9c5MINIM00000019_b.jpg?tr=w-500',
-      'https://images-static.nykaa.com/media/catalog/product/3/9/394e9c5MINIM00000019_c.jpg?tr=w-500'
+      'assets/market_products/minimalist_1.png',
+      'assets/market_products/minimalist_2.png',
+      'assets/market_products/minimalist_3.png'
     ],
     cardClass: 'card--market',
     ribbon: null,
@@ -92,11 +92,9 @@ const PRODUCTS = [
     discount: '17% OFF',
     rating: 4.2,
     reviews: 2104,
-    image: 'https://images-static.nykaa.com/media/catalog/product/9/d/9d1c275DOTKE00000186_1.jpg?tr=w-500',
+    image: 'https://www.dotandkey.com/cdn/shop/files/175ml.jpg?format=webp&quality=85&v=1781243494&width=480',
     carouselImages: [
-      'https://images-static.nykaa.com/media/catalog/product/9/d/9d1c275DOTKE00000186_1.jpg?tr=w-500',
-      'https://images-static.nykaa.com/media/catalog/product/9/d/9d1c275DOTKE00000186_2.jpg?tr=w-500',
-      'https://images-static.nykaa.com/media/catalog/product/9/d/9d1c275DOTKE00000186_3.jpg?tr=w-500'
+      'https://www.dotandkey.com/cdn/shop/files/175ml.jpg?format=webp&quality=85&v=1781243494&width=480'
     ],
     cardClass: 'card--market',
     ribbon: null,
@@ -114,11 +112,9 @@ const PRODUCTS = [
     discount: '15% OFF',
     rating: 4.2,
     reviews: 4315,
-    image: 'https://images-static.nykaa.com/media/catalog/product/3/d/3d3a22aTHEDE00000342_1aa.jpg?tr=w-500',
+    image: 'https://thedermaco.com/cdn/shop/files/6th_1.jpg?v=1772703076&width=1080',
     carouselImages: [
-      'https://images-static.nykaa.com/media/catalog/product/3/d/3d3a22aTHEDE00000342_1aa.jpg?tr=w-500',
-      'https://images-static.nykaa.com/media/catalog/product/3/d/3d3a22aTHEDE00000342_2.jpg?tr=w-500',
-      'https://images-static.nykaa.com/media/catalog/product/3/d/3d3a22aTHEDE00000342_3.jpg?tr=w-500'
+      'https://thedermaco.com/cdn/shop/files/6th_1.jpg?v=1772703076&width=1080'
     ],
     cardClass: 'card--market',
     ribbon: null,

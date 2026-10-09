@@ -182,18 +182,12 @@ function renderPreview() {
       </p>
     `;
   } else {
-    const images = surveyState.productData.carouselImages || [
-      surveyState.productData.image,
-      surveyState.productData.image,
-      surveyState.productData.image
-    ];
+    const images = surveyState.productData.carouselImages || [surveyState.productData.image];
     previewContent += `
       <div class="preview-carousel">
-        <img src="${escHtml(images[0])}" alt="Product Image 1">
-        <img src="${escHtml(images[1])}" alt="Product Image 2">
-        <img src="${escHtml(images[2])}" alt="Product Image 3">
+        ${images.map((img, i) => `<img src="${escHtml(img)}" alt="Product Image ${i + 1}">`).join('')}
       </div>
-      <div class="carousel-hint">Swipe left to see more →</div>
+      ${images.length > 1 ? '<div class="carousel-hint">Swipe left to see more &rarr;</div>' : ''}
       <p style="font-size: 0.9rem; color: var(--color-text-secondary); text-align: center; margin-bottom: 0;">
         ${escHtml(surveyState.productData.tagline || '')}
       </p>
