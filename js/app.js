@@ -42,8 +42,8 @@ const PRODUCTS = [
     id: 'skn',
     brand: 'OG Derma',
     name: 'Oily + Acne Cleanser (01)',
-    subtitle: 'Made For: Oily Skin · Frequent Breakouts',
-    tagline: 'Your skin. Simplified.',
+    subtitle: 'Your right to know what and how it works.',
+    tagline: 'No BS. Just actives.',
     type: 'concept',
     price: 499,
     originalPrice: null,
@@ -202,7 +202,7 @@ function buildSknCard(p) {
       <div class="card-body">
         <p class="card-brand">${escHtml(p.brand)}</p>
         <p class="card-name">${escHtml(p.name)}</p>
-        <span class="made-for-badge">🎯 Made For: Oily Skin · Frequent Breakouts</span>
+        <p class="card-sub">${escHtml(p.subtitle)}</p>
 
         <div class="card-rating">
           ${renderStars(p.rating)}

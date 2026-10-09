@@ -719,34 +719,7 @@ button { cursor: pointer; font-family: var(--font-ui); border: none; background:
 .ingredient-table tr:last-child td { border-bottom: none; }
 .ingredient-table tr:nth-child(even) td { background: rgba(0,0,0,0.03); }
 
-/* ── 9. SKN. CARD VARIANT ───────────────────────────────────── */
-.card--skn {
-  background: var(--color-skn-bg);
-  border-color: #d0ddd0;
-}
-.card--skn .card-image-wrap { background: var(--color-skn-bg); }
-
-.card--skn .card-brand {
-  color: var(--color-skn-accent);
-  font-size: 1rem;
-  font-weight: 700;
-  letter-spacing: 0px;
-  text-transform: none;
-}
-
-.made-for-badge {
-  background: var(--color-skn-badge);
-  color: #fff;
-  font-size: 0.7rem;
-  font-weight: 600;
-  padding: 4px 10px;
-  border-radius: var(--radius-pill);
-  display: inline-flex;
-  align-items: center;
-  gap: 4px;
-  align-self: flex-start;
-  margin-top: var(--space-xs);
-}
+/* Removed .card--skn to use default white card style */
 
 .qr-badge {
   display: flex;
