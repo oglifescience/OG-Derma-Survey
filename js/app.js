@@ -42,7 +42,7 @@ const PRODUCTS = [
     id: 'skn',
     brand: 'OG Derma',
     name: 'Oily + Acne Cleanser (01)',
-    subtitle: 'Tells your oil glands to chill. No gatekeeping, just facts.',
+    subtitle: 'No gatekeeping. Just facts.',
     tagline: 'Your skin + Your terms.',
     type: 'concept',
     price: 499,
