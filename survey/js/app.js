@@ -9,7 +9,7 @@ const PRODUCTS = [
     id: 'veritas',
     brand: 'OG Derma',
     name: 'The Acne Cleanser For Oily Skin',
-    subtitle: 'Succinic Acid 1.5% + LHA 0.3%',
+    subtitle: 'Your right to know what and how it works',
     tagline: 'No gatekeeping. Just facts.',
     type: 'concept',
     price: 349,
