@@ -58,23 +58,6 @@ const PRODUCTS = [
     qrUrl: '#', // TODO: Replace with video URL before going live
   },
 
-  // ── COMPETITOR: CERAVE ────────────────────────────────────
-  {
-    id: 'cerave',
-    brand: 'CeraVe',
-    name: 'Foaming Facial Cleanser',
-    subtitle: 'For Normal to Oily Skin · With Niacinamide & 3 Essential Ceramides',
-    type: 'market',
-    price: 559,
-    originalPrice: 699,
-    discount: '20% OFF',
-    rating: 4.4,
-    reviews: 3241,
-    image: 'https://images-static.nykaa.com/media/catalog/product/d/a/da25edbCERAV00000010_1.jpg?tr=w-500',
-    cardClass: 'card--market',
-    ribbon: null,
-  },
-
   // ── COMPETITOR: THE MINIMALIST ────────────────────────────
   {
     id: 'minimalist',
@@ -105,40 +88,6 @@ const PRODUCTS = [
     rating: 4.2,
     reviews: 2104,
     image: 'https://images-static.nykaa.com/media/catalog/product/9/d/9d1c275DOTKE00000186_1.jpg?tr=w-500',
-    cardClass: 'card--market',
-    ribbon: null,
-  },
-
-  // ── COMPETITOR: MCAFFEINE ─────────────────────────────────
-  {
-    id: 'mcaffeine',
-    brand: 'mCaffeine',
-    name: '2% Salicylic Acid Anti-Acne Face Wash',
-    subtitle: 'With Niacinamide & Matcha Tea · Oil Control',
-    type: 'market',
-    price: 254,
-    originalPrice: 299,
-    discount: '15% OFF',
-    rating: 4.1,
-    reviews: 8743,
-    image: 'https://images-static.nykaa.com/media/catalog/product/2/f/2fed027MCAFF00000506_1.jpg?tr=w-500',
-    cardClass: 'card--market',
-    ribbon: null,
-  },
-
-  // ── COMPETITOR: PLUM ─────────────────────────────────────
-  {
-    id: 'plum',
-    brand: 'Plum',
-    name: 'Green Tea Pore Cleansing Face Wash',
-    subtitle: 'With Glycolic Acid · Alcohol-Free · Acne-Prone & Oily Skin',
-    type: 'market',
-    price: 269,
-    originalPrice: 325,
-    discount: '17% OFF',
-    rating: 4.3,
-    reviews: 6920,
-    image: 'https://images-static.nykaa.com/media/catalog/product/b/b/bbed6a8PLUMX00001019_01.jpg?tr=w-500',
     cardClass: 'card--market',
     ribbon: null,
   },
