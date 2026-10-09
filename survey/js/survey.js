@@ -163,7 +163,7 @@ function renderPreview() {
       </div>
       <div class="carousel-hint">Swipe left to see more →</div>
       <p style="font-size: 0.9rem; color: var(--color-text-secondary); text-align: center; margin-bottom: 0;">
-        A revolutionary cleanser powered by Succinic Acid, Zinc PCA, and LHA to gently clear pores without stripping your skin. Nothing hidden, nothing hyped.
+        What you see is what you get. Zero secrets, zero fluff. Just the exact formula your skin actually needs.
       </p>
     `;
   } else if (surveyState.product === 'skn') {
