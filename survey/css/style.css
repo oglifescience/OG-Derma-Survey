@@ -1620,7 +1620,7 @@ button {
   width: 100%;
   height: 50vh;
   max-height: 450px;
-  object-fit: cover;
+  object-fit: contain;
   object-position: center;
   scroll-snap-align: start;
   display: block;
