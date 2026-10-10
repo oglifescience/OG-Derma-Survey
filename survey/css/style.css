@@ -796,11 +796,11 @@ button {
 }
 
 .card--skn .card-image-wrap img {
-  transform: scale(1.35);
+  transform: scale(1.30);
 }
 
 .card--skn:hover .card-image-wrap img {
-  transform: scale(1.40);
+  transform: scale(1.35);
 }
 
 .ingredient-badge-row {
