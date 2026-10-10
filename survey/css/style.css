@@ -795,6 +795,14 @@ button {
   font-weight: 700;
 }
 
+.card--skn .card-image-wrap img {
+  transform: scale(1.35);
+}
+
+.card--skn:hover .card-image-wrap img {
+  transform: scale(1.40);
+}
+
 .ingredient-badge-row {
   display: flex;
   gap: 5px;
