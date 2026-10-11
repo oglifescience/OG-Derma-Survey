@@ -778,11 +778,11 @@ button {
 }
 
 .card--veritas .card-image-wrap img {
-  transform: scale(1.40);
+  transform: scale(1.50);
 }
 
 .card--veritas:hover .card-image-wrap img {
-  transform: scale(1.45);
+  transform: scale(1.55);
 }
 
 .card--veritas .card-brand {
