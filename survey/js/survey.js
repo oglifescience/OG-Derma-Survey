@@ -6,8 +6,7 @@
    See SETUP.md for step-by-step instructions.
    ============================================================ */
 
-// ── CONFIGURATION ────────────────────────────────────────────
-const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwfRRnUvp-7tFdd5UNJw1g1wFIb392oUEZ1OoBDNGTHxNexZS-8mgENlcZTldHijzAXVQ/exec';
+const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyKfSsAPUldmAJsi4OEL0N1cIUjx3nSxMXGYUqumWE0W1sIjeJ2o50Ata0EamZ_fgVohw/exec';
 
 // ── SURVEY QUESTIONS DATA ────────────────────────────────────
 const SURVEY_QUESTIONS = [

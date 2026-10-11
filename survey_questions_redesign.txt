@@ -82,13 +82,13 @@ QUESTION 4 (Q4) — APPEAL RATING (1 to 5)
 --------------------------------------------
 Type: 5-level appeal / interest scale
 
-"How appealing is this to you: You tell us your skin type and your skin concern — we give you the product for that. No actives listed on the front. No marketing jargon. Just: this is your issue, this is your skin type, here's your solution."
+"How appealing is this to you: You tell us your skin type and your skin concern — we give you the product for that. No actives listed on the front. No marketing jargon."
 
 Scale:
   1 — Not appealing at all     (I want full ingredient details upfront)
   2 — Slightly appealing       (some info is good, actives matter to me)
   3 — Somewhat appealing       (some info is fine, don't need everything)
-  4 — Very appealing           (no jargon needed, just tell me it works)
+  4 — Very appealing           (no jargon needed, just tell me it's for me)
   5 — This is exactly what I need  (skin type + concern = done, nothing more)
 
 Purpose:
