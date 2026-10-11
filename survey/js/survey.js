@@ -155,8 +155,8 @@ function renderPreview() {
   if (surveyState.product === 'veritas') {
     previewContent += `
       <div class="preview-carousel">
-        <img src="assets/images%20of%20concepts/IMG_1295.jpg?v=${Date.now()}" alt="Veritas Concept 1">
-        <img src="assets/images%20of%20concepts/IMG_1296.jpg?v=${Date.now()}" alt="Veritas Concept 2">
+        <div class="carousel-slide"><img src="assets/images%20of%20concepts/IMG_1295.jpg?v=${Date.now()}" alt="Veritas Concept 1"></div>
+        <div class="carousel-slide"><img src="assets/images%20of%20concepts/IMG_1296.jpg?v=${Date.now()}" alt="Veritas Concept 2"></div>
         <div class="landscape-wrapper" style="flex: 0 0 100%; height: 50vh; overflow: hidden; scroll-snap-align: start; background-color: rgb(229, 239, 255); display: flex; align-items: center; justify-content: center;">
           <img src="assets/images%20of%20concepts/IMG_1297.jpg?v=${Date.now()}" alt="Veritas Concept 3" style="width: 100%; height: 100%; object-fit: contain; transform: scale(1);">
         </div>
@@ -169,9 +169,9 @@ function renderPreview() {
   } else if (surveyState.product === 'skn') {
     previewContent += `
       <div class="preview-carousel">
-        <img src="assets/images%20of%20concepts/IMG_1286.jpg?v=${Date.now()}" alt="Skn Concept 1">
-        <img src="assets/images%20of%20concepts/IMG_1288.jpg?v=${Date.now()}" alt="Skn Concept 2">
-        <img src="assets/images%20of%20concepts/IMG_1289.jpg?v=${Date.now()}" alt="Skn Concept 3">
+        <div class="carousel-slide"><img src="assets/images%20of%20concepts/IMG_1286.jpg?v=${Date.now()}" alt="Skn Concept 1"></div>
+        <div class="carousel-slide"><img src="assets/images%20of%20concepts/IMG_1288.jpg?v=${Date.now()}" alt="Skn Concept 2"></div>
+        <div class="carousel-slide"><img src="assets/images%20of%20concepts/IMG_1289.jpg?v=${Date.now()}" alt="Skn Concept 3"></div>
         <div class="landscape-wrapper" style="flex: 0 0 100%; height: 50vh; overflow: hidden; scroll-snap-align: start; background-color: rgb(224, 233, 255); display: flex; align-items: center; justify-content: center;">
           <img src="assets/images%20of%20concepts/IMG_1287.jpg?v=${Date.now()}" alt="Skn Concept 4" style="width: 100%; height: 100%; object-fit: contain; transform: scale(1);">
         </div>
@@ -185,7 +185,7 @@ function renderPreview() {
     const images = surveyState.productData.carouselImages || [surveyState.productData.image];
     previewContent += `
       <div class="preview-carousel">
-        ${images.map((img, i) => `<img src="${escHtml(img)}" alt="Product Image ${i + 1}">`).join('')}
+        ${images.map((img, i) => `<div class="carousel-slide"><img src="${escHtml(img)}" alt="Product Image ${i + 1}"></div>`).join('')}
       </div>
       ${images.length > 1 ? '<div class="carousel-hint">Swipe left to see more &rarr;</div>' : ''}
       <p style="font-size: 0.9rem; color: var(--color-text-secondary); text-align: center; margin-bottom: 0;">
