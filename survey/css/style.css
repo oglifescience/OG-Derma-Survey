@@ -1714,7 +1714,6 @@ button {
 .preview-carousel {
   display: flex;
   overflow-x: auto;
-  overflow-y: hidden;
   scroll-snap-type: x mandatory;
   scrollbar-width: none;
   -ms-overflow-style: none;
@@ -1726,30 +1725,15 @@ button {
   display: none;
 }
 
-.carousel-slide {
+.preview-carousel img {
   flex: 0 0 100%;
+  width: 100%;
   height: 50vh;
   max-height: 450px;
-  overflow: hidden;
-  scroll-snap-align: start;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.carousel-slide img,
-.preview-carousel img {
-  width: 100%;
-  height: 100%;
   object-fit: contain;
   object-position: center;
+  scroll-snap-align: start;
   display: block;
-  transform: scale(1.18);
-  transition: transform var(--t-med);
-}
-
-.landscape-wrapper img {
-  transform: scale(1) !important;
 }
 
 .carousel-hint {
