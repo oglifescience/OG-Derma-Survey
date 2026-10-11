@@ -13,42 +13,68 @@ const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwfRRnUvp-7tFdd5UNJw
 const SURVEY_QUESTIONS = [
   {
     id: 'q1',
-    text: 'What primarily drove your choice to select this cleanser today?',
-    options: [
-      'The complete transparency of the ingredients',
-      'It was perfectly matched to my skin type & problem',
-      'The brand attitude and aesthetic',
-      "I'm looking for something better than my current routine",
-    ],
+    type: 'text',
+    text: 'In one line — what made you pick this?',
+    placeholder: 'e.g. The ingredients were honest…',
   },
   {
     id: 'q2',
-    text: "What's your biggest frustration with your current acne/oil-control products?",
+    type: 'stars',
+    text: 'Knowing exactly what\'s in your cleanser matters to me.',
     options: [
-      "They're too harsh and strip my skin",
-      "I don't understand half the chemicals in them",
-      'They overpromise and underdeliver',
-      'The routines are too complicated',
+      { value: '1', label: 'Not at all' },
+      { value: '2', label: 'Not really' },
+      { value: '3', label: 'Somewhat' },
+      { value: '4', label: 'Quite a lot' },
+      { value: '5', label: 'Absolutely, it\'s everything' },
     ],
   },
   {
     id: 'q3',
-    text: 'If you described this product to a friend based on what you saw today, what would you say?',
+    type: 'likert',
+    text: 'My skin has a specific type AND a specific concern — I want a product built for that exact combination, not a generic formula.',
     options: [
-      '"It\'s super honest about exactly what\'s inside"',
-      '"It makes figuring out skincare incredibly easy"',
-      '"It looks like a premium, science-backed brand"',
-      '"It\'s a cool new brand I want to try"',
+      { value: '1', label: 'Strongly Disagree', hint: 'Generic products work fine' },
+      { value: '2', label: 'Disagree', hint: '' },
+      { value: '3', label: 'Slightly Disagree', hint: '' },
+      { value: '4', label: 'Slightly Agree', hint: '' },
+      { value: '5', label: 'Agree', hint: '' },
+      { value: '6', label: 'Strongly Agree', hint: 'Need my exact combo' },
     ],
   },
   {
     id: 'q4',
-    text: 'How do you prefer to learn about the science behind your skincare?',
+    type: 'scale',
+    text: 'How appealing is this to you: You tell us your skin type and your skin concern — we give you the product for that. No actives listed on the front. No marketing jargon.',
     options: [
-      'Reading the ingredient label / website details',
-      'Scanning a QR code for a short video breakdown',
-      "Trusting a derm or influencer's recommendation",
-      "I don't care, as long as it works",
+      { value: '1', label: 'Not appealing', hint: 'I want full ingredient details' },
+      { value: '2', label: 'Slightly', hint: 'Actives matter to me' },
+      { value: '3', label: 'Somewhat', hint: 'Some info is fine' },
+      { value: '4', label: 'Very appealing', hint: 'No jargon, just tell me it\'s for me' },
+      { value: '5', label: 'Exactly this!', hint: 'Skin type + concern = done' },
+    ],
+  },
+  {
+    id: 'q5',
+    type: 'scale',
+    text: 'How likely are you to recommend this product to a friend?',
+    options: [
+      { value: '1', label: 'Never', hint: '' },
+      { value: '2', label: 'Unlikely', hint: '' },
+      { value: '3', label: 'Maybe', hint: '' },
+      { value: '4', label: 'Likely', hint: '' },
+      { value: '5', label: 'Definitely!', hint: '' },
+    ],
+  },
+  {
+    id: 'q6',
+    type: 'pick',
+    text: 'How do you prefer to learn about your skincare?',
+    options: [
+      { value: 'Read label', label: '📖', sublabel: 'Read the label' },
+      { value: 'QR video', label: '📱', sublabel: 'Scan QR → short video' },
+      { value: 'Derm / influencer', label: '👩‍⚕️', sublabel: 'Trust a derm / influencer' },
+      { value: 'Just want it to work', label: '✨', sublabel: 'I just want it to work' },
     ],
   },
 ];
@@ -61,7 +87,7 @@ const surveyState = {
   currentQ: 0,         // 0-indexed within SURVEY_QUESTIONS
   name: '',            // respondent name
   age: '',             // selected age range
-  answers: {},         // { q1, q2, q3, q4 }
+  answers: {},         // { q1, q2, q3, q4, q5, q6 }
 };
 
 // ── DOM REFS ─────────────────────────────────────────────────
@@ -111,7 +137,7 @@ function openModal(productId, product) {
     <span class="selected-product-tag">
       ✓ You selected: <strong>${escHtml(product.brand)} — ${escHtml(product.name)}</strong>
     </span>
-    <span class="preamble-sub">Help us understand your choice — 4 quick questions.</span>
+    <span class="preamble-sub">Help us understand your choice — 6 quick questions.</span>
   `;
   preamble.hidden = false;
 
@@ -206,11 +232,11 @@ function renderPreview() {
 function renderDemographics() {
   surveyState.screen = 'demo';
 
-  // Progress: step 0 of total (4 questions + 1 demo screen = 5 total steps)
+  // Progress: step 0 of total (6 questions + 1 demo screen = 8 total steps)
   document.getElementById('modal-progress-wrap').style.display = 'block';
   document.getElementById('modal-product-summary').style.display = 'flex';
   progressFill.style.width = '0%';
-  progressLabel.textContent = 'Step 1 of 6 — About you';
+  progressLabel.textContent = 'Step 1 of 8 — About you';
 
   questionText.style.display = 'block';
   questionText.textContent = 'Quick intro before we start ✦';
@@ -279,16 +305,16 @@ function validateDemo() {
   btnNext.disabled = !(nameOk && ageOk);
 }
 
-// SCREENS 1-4: Survey questions
+// SCREENS 1-6: Survey questions
 function renderQuestion(index) {
   surveyState.screen = 'questions';
   const q = SURVEY_QUESTIONS[index];
   const total = SURVEY_QUESTIONS.length;
 
-  // Progress: demo was step 1, questions are steps 2-5, submit is step 6
+  // Progress: demo was step 1, questions are steps 2-7, submit is step 8
   const pct = Math.round(((index + 1) / (total + 1)) * 100);
   progressFill.style.width = pct + '%';
-  progressLabel.textContent = `Step ${index + 2} of 6 — Question ${index + 1} of ${total}`;
+  progressLabel.textContent = `Step ${index + 2} of 8 — Question ${index + 1} of ${total}`;
 
   questionText.style.display = 'block';
   questionText.textContent = q.text;
@@ -297,48 +323,185 @@ function renderQuestion(index) {
   // Hide preamble once questions start
   preamble.style.display = 'none';
 
-  // Render options
   optionsContainer.innerHTML = '';
   optionsContainer.style.marginBottom = '';
-  q.options.forEach((optText, i) => {
-    const optId = `opt-${index}-${i}`;
-    const div = document.createElement('label');
-    div.className = 'survey-option';
-    div.setAttribute('for', optId);
-    div.setAttribute('role', 'radio');
-    div.setAttribute('aria-checked', 'false');
-    div.setAttribute('tabindex', '0');
 
-    const alreadySelected = surveyState.answers[q.id] === optText;
-    if (alreadySelected) {
-      div.classList.add('selected');
-      div.setAttribute('aria-checked', 'true');
-    }
-
-    div.innerHTML = `
-      <input type="radio" id="${optId}" name="survey-q${index}" value="${escHtml(optText)}" ${alreadySelected ? 'checked' : ''} />
-      <span class="option-dot"></span>
-      <span class="option-label">${escHtml(optText)}</span>
+  // ── Text (open-ended) ──────────────────────────────────────
+  if (q.type === 'text') {
+    const saved = surveyState.answers[q.id] || '';
+    optionsContainer.innerHTML = `
+      <div class="open-text-wrap">
+        <textarea
+          id="open-text-${q.id}"
+          class="open-text-input"
+          placeholder="${escHtml(q.placeholder || '')}"
+          maxlength="200"
+          rows="4"
+        >${escHtml(saved)}</textarea>
+        <div class="open-text-hint">Keep it short — one line is perfect ✦</div>
+      </div>
     `;
-
-    div.addEventListener('click', () => selectOption(q.id, optText, index));
-    div.addEventListener('keydown', (e) => {
-      if (e.key === 'Enter' || e.key === ' ') {
-        e.preventDefault();
-        selectOption(q.id, optText, index);
-      }
+    const ta = document.getElementById(`open-text-${q.id}`);
+    ta.addEventListener('input', () => {
+      surveyState.answers[q.id] = ta.value.trim();
+      btnNext.disabled = surveyState.answers[q.id].length === 0;
     });
+    btnBack.style.visibility = 'visible';
+    btnNext.disabled = saved.length === 0;
+    btnNext.textContent = 'Next →';
+    return;
+  }
 
-    optionsContainer.appendChild(div);
-  });
+  // ── Stars (1–5 star rating) ────────────────────────────────
+  if (q.type === 'stars') {
+    const saved = surveyState.answers[q.id] || null;
+    let starHtml = '<div class="star-rating-wrap">';
+    q.options.forEach(opt => {
+      const sel = saved === opt.value ? 'selected' : '';
+      starHtml += `
+        <button type="button" class="star-btn ${sel}" data-value="${escHtml(opt.value)}" aria-label="${escHtml(opt.label)}">
+          <span class="star-icon">★</span>
+          <span class="star-label">${escHtml(opt.label)}</span>
+        </button>`;
+    });
+    starHtml += '</div>';
+    optionsContainer.innerHTML = starHtml;
+    optionsContainer.querySelectorAll('.star-btn').forEach((btn, i) => {
+      btn.addEventListener('mouseenter', () => highlightStars(i));
+      btn.addEventListener('mouseleave', () => restoreStars(q.id, q.options));
+      btn.addEventListener('click', () => {
+        surveyState.answers[q.id] = btn.dataset.value;
+        selectStar(btn.dataset.value, q.options);
+        btnNext.disabled = false;
+      });
+    });
+    if (saved) selectStar(saved, q.options);
+    btnBack.style.visibility = 'visible';
+    btnNext.disabled = !saved;
+    btnNext.textContent = 'Next →';
+    return;
+  }
+
+  // ── Likert (1–6 agree/disagree) ────────────────────────────
+  if (q.type === 'likert') {
+    const saved = surveyState.answers[q.id] || null;
+    let html = '<div class="likert-wrap">';
+    html += '<div class="likert-ends"><span>Strongly Disagree</span><span>Strongly Agree</span></div>';
+    html += '<div class="likert-row">';
+    q.options.forEach(opt => {
+      const sel = saved === opt.value ? 'selected' : '';
+      html += `<button type="button" class="likert-btn ${sel}" data-value="${escHtml(opt.value)}" title="${escHtml(opt.hint || opt.label)}">${escHtml(opt.value)}</button>`;
+    });
+    html += '</div>';
+    if (saved) {
+      const selOpt = q.options.find(o => o.value === saved);
+      html += `<div class="likert-selected-label" id="likert-lbl">${escHtml(selOpt ? selOpt.label : '')}</div>`;
+    } else {
+      html += '<div class="likert-selected-label" id="likert-lbl"></div>';
+    }
+    html += '</div>';
+    optionsContainer.innerHTML = html;
+    optionsContainer.querySelectorAll('.likert-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        surveyState.answers[q.id] = btn.dataset.value;
+        optionsContainer.querySelectorAll('.likert-btn').forEach(b => b.classList.remove('selected'));
+        btn.classList.add('selected');
+        const selOpt = q.options.find(o => o.value === btn.dataset.value);
+        document.getElementById('likert-lbl').textContent = selOpt ? selOpt.label : '';
+        btnNext.disabled = false;
+      });
+    });
+    btnBack.style.visibility = 'visible';
+    btnNext.disabled = !saved;
+    btnNext.textContent = 'Next →';
+    return;
+  }
+
+  // ── Scale (1–5 pill row) ───────────────────────────────────
+  if (q.type === 'scale') {
+    const saved = surveyState.answers[q.id] || null;
+    let html = '<div class="scale-wrap">';
+    q.options.forEach(opt => {
+      const sel = saved === opt.value ? 'selected' : '';
+      html += `
+        <button type="button" class="scale-btn ${sel}" data-value="${escHtml(opt.value)}">
+          <span class="scale-num">${escHtml(opt.value)}</span>
+          <span class="scale-label">${escHtml(opt.label)}</span>
+          ${opt.hint ? `<span class="scale-hint">${escHtml(opt.hint)}</span>` : ''}
+        </button>`;
+    });
+    html += '</div>';
+    optionsContainer.innerHTML = html;
+    optionsContainer.querySelectorAll('.scale-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        surveyState.answers[q.id] = btn.dataset.value;
+        optionsContainer.querySelectorAll('.scale-btn').forEach(b => b.classList.remove('selected'));
+        btn.classList.add('selected');
+        btnNext.disabled = false;
+      });
+    });
+    btnBack.style.visibility = 'visible';
+    btnNext.disabled = !saved;
+    const isLast = index === total - 1;
+    btnNext.textContent = isLast ? 'Submit ✓' : 'Next →';
+    return;
+  }
+
+  // ── Pick (emoji quick-pick) ────────────────────────────────
+  if (q.type === 'pick') {
+    const saved = surveyState.answers[q.id] || null;
+    let html = '<div class="pick-wrap">';
+    q.options.forEach(opt => {
+      const sel = saved === opt.value ? 'selected' : '';
+      html += `
+        <button type="button" class="pick-btn ${sel}" data-value="${escHtml(opt.value)}">
+          <span class="pick-emoji">${opt.label}</span>
+          <span class="pick-sublabel">${escHtml(opt.sublabel)}</span>
+        </button>`;
+    });
+    html += '</div>';
+    optionsContainer.innerHTML = html;
+    optionsContainer.querySelectorAll('.pick-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        surveyState.answers[q.id] = btn.dataset.value;
+        optionsContainer.querySelectorAll('.pick-btn').forEach(b => b.classList.remove('selected'));
+        btn.classList.add('selected');
+        btnNext.disabled = false;
+      });
+    });
+    btnBack.style.visibility = 'visible';
+    btnNext.disabled = !saved;
+    const isLast = index === total - 1;
+    btnNext.textContent = isLast ? 'Submit ✓' : 'Next →';
+    return;
+  }
 
   btnBack.style.visibility = 'visible';
-
   const hasAnswer = !!surveyState.answers[q.id];
   btnNext.disabled = !hasAnswer;
-
   const isLast = index === total - 1;
   btnNext.textContent = isLast ? 'Submit ✓' : 'Next →';
+}
+
+// Star rating helpers
+function highlightStars(upToIndex) {
+  const btns = optionsContainer.querySelectorAll('.star-btn');
+  btns.forEach((b, i) => b.classList.toggle('hovered', i <= upToIndex));
+}
+function restoreStars(qId, options) {
+  const saved = surveyState.answers[qId];
+  const btns = optionsContainer.querySelectorAll('.star-btn');
+  btns.forEach(b => {
+    b.classList.remove('hovered');
+    b.classList.toggle('selected', saved === b.dataset.value);
+  });
+}
+function selectStar(value, options) {
+  const btns = optionsContainer.querySelectorAll('.star-btn');
+  const idx = options.findIndex(o => o.value === value);
+  btns.forEach((b, i) => {
+    b.classList.toggle('selected', i <= idx);
+  });
 }
 
 function selectOption(questionId, value, qIndex) {
@@ -417,6 +580,8 @@ async function submitSurvey() {
     q2: answers.q2 || '',
     q3: answers.q3 || '',
     q4: answers.q4 || '',
+    q5: answers.q5 || '',
+    q6: answers.q6 || '',
   };
 
   try {

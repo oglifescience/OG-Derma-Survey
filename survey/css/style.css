@@ -1285,6 +1285,259 @@ button {
   line-height: 1.4;
 }
 
+/* ── Open-text (Q1) ──────────────────────────────────────── */
+.open-text-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.open-text-input {
+  width: 100%;
+  padding: 14px 16px;
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-md);
+  font-size: 0.92rem;
+  font-family: inherit;
+  color: var(--color-text);
+  background: #fff;
+  resize: none;
+  transition: border-color var(--t-fast), box-shadow var(--t-fast);
+  line-height: 1.5;
+  box-sizing: border-box;
+}
+
+.open-text-input:focus {
+  outline: none;
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 3px rgba(232, 82, 122, 0.12);
+}
+
+.open-text-hint {
+  font-size: 0.78rem;
+  color: var(--color-text-secondary);
+  text-align: right;
+}
+
+/* ── Star rating (Q2) ────────────────────────────────────── */
+.star-rating-wrap {
+  display: flex;
+  gap: 6px;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 8px 0;
+}
+
+.star-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  background: none;
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 10px 8px;
+  cursor: pointer;
+  flex: 1;
+  min-width: 52px;
+  transition: all var(--t-fast);
+}
+
+.star-btn .star-icon {
+  font-size: 1.5rem;
+  color: #e0e0e0;
+  transition: color var(--t-fast);
+  line-height: 1;
+}
+
+.star-btn .star-label {
+  font-size: 0.68rem;
+  color: var(--color-text-secondary);
+  text-align: center;
+  line-height: 1.2;
+}
+
+.star-btn.selected .star-icon,
+.star-btn.hovered .star-icon {
+  color: #f5a623;
+}
+
+.star-btn.selected,
+.star-btn.hovered {
+  border-color: #f5a623;
+  background: #fffbf0;
+}
+
+/* ── Likert (Q3) ─────────────────────────────────────────── */
+.likert-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 4px 0;
+}
+
+.likert-ends {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.72rem;
+  color: var(--color-text-secondary);
+  padding: 0 2px;
+}
+
+.likert-row {
+  display: flex;
+  gap: 6px;
+  justify-content: center;
+}
+
+.likert-btn {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1.5px solid var(--color-border);
+  background: #fff;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--color-text);
+  cursor: pointer;
+  transition: all var(--t-fast);
+  flex-shrink: 0;
+}
+
+.likert-btn:hover {
+  border-color: var(--color-accent);
+  background: var(--color-accent-light);
+  color: var(--color-accent);
+}
+
+.likert-btn.selected {
+  border-color: var(--color-accent);
+  background: var(--color-accent);
+  color: #fff;
+  box-shadow: 0 0 0 3px rgba(232, 82, 122, 0.2);
+}
+
+.likert-selected-label {
+  text-align: center;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--color-accent);
+  min-height: 18px;
+  transition: opacity var(--t-fast);
+}
+
+/* ── Scale pills (Q4, Q5) ────────────────────────────────── */
+.scale-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 4px 0;
+}
+
+.scale-btn {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: #fff;
+  cursor: pointer;
+  text-align: left;
+  transition: all var(--t-fast);
+  width: 100%;
+}
+
+.scale-btn:hover {
+  border-color: var(--color-accent);
+  background: var(--color-accent-light);
+}
+
+.scale-btn.selected {
+  border-color: var(--color-accent);
+  background: var(--color-accent-light);
+  box-shadow: 0 0 0 2px rgba(232, 82, 122, 0.15);
+}
+
+.scale-num {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--color-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--color-text);
+  flex-shrink: 0;
+  transition: all var(--t-fast);
+}
+
+.scale-btn.selected .scale-num {
+  background: var(--color-accent);
+  color: #fff;
+}
+
+.scale-label {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--color-text);
+  flex: 1;
+}
+
+.scale-hint {
+  font-size: 0.75rem;
+  color: var(--color-text-secondary);
+}
+
+/* ── Emoji quick-pick (Q6) ───────────────────────────────── */
+.pick-wrap {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  padding: 4px 0;
+}
+
+.pick-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 18px 10px;
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: #fff;
+  cursor: pointer;
+  transition: all var(--t-fast);
+}
+
+.pick-btn:hover {
+  border-color: var(--color-accent);
+  background: var(--color-accent-light);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(232, 82, 122, 0.1);
+}
+
+.pick-btn.selected {
+  border-color: var(--color-accent);
+  background: var(--color-accent-light);
+  box-shadow: 0 0 0 2px rgba(232, 82, 122, 0.2);
+}
+
+.pick-emoji {
+  font-size: 2rem;
+  line-height: 1;
+}
+
+.pick-sublabel {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--color-text);
+  text-align: center;
+  line-height: 1.3;
+}
+
 /* Modal nav */
 .modal-nav {
   display: flex;

@@ -1,0 +1,61 @@
+OG DERMA — SURVEY QUESTIONS BACKUP
+====================================
+Saved on: 2026-10-11
+
+------------------------------------
+STEP 1: DEMOGRAPHICS (INTRO)
+------------------------------------
+1. Your Name: (Text field)
+2. Age Range:
+   - 15 – 20
+   - 20 – 25
+   - 25 – 30
+   - Others
+
+------------------------------------
+QUESTION 1 (Q1)
+------------------------------------
+Question:
+What primarily drove your choice to select this cleanser today?
+
+Options:
+1. The complete transparency of the ingredients
+2. It was perfectly matched to my skin type & problem
+3. The brand attitude and aesthetic
+4. I'm looking for something better than my current routine
+
+------------------------------------
+QUESTION 2 (Q2)
+------------------------------------
+Question:
+What's your biggest frustration with your current acne/oil-control products?
+
+Options:
+1. They're too harsh and strip my skin
+2. I don't understand half the chemicals in them
+3. They overpromise and underdeliver
+4. The routines are too complicated
+
+------------------------------------
+QUESTION 3 (Q3)
+------------------------------------
+Question:
+If you described this product to a friend based on what you saw today, what would you say?
+
+Options:
+1. "It's super honest about exactly what's inside"
+2. "It makes figuring out skincare incredibly easy"
+3. "It looks like a premium, science-backed brand"
+4. "It's a cool new brand I want to try"
+
+------------------------------------
+QUESTION 4 (Q4)
+------------------------------------
+Question:
+How do you prefer to learn about the science behind your skincare?
+
+Options:
+1. Reading the ingredient label / website details
+2. Scanning a QR code for a short video breakdown
+3. Trusting a derm or influencer's recommendation
+4. I don't care, as long as it works
