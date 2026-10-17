@@ -125,7 +125,9 @@ function openModal(productId, product) {
   surveyState.answers = {};
 
   // Populate product summary header
-  modalThumb.src = product.image;
+  modalThumb.src = window.__ASSET_VERSION__
+    ? (product.image + (product.image.includes('?') ? '&' : '?') + 'v=' + window.__ASSET_VERSION__)
+    : product.image;
   modalThumb.alt = product.name;
   modalBrand.textContent = product.brand;
   modalProductName.textContent = product.name;

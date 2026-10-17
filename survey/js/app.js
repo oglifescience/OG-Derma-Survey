@@ -162,6 +162,13 @@ function buildIngredientTable(ingredients) {
     </table>`;
 }
 
+function assetUrl(url) {
+  if (!url) return '';
+  const v = window.__ASSET_VERSION__;
+  if (!v) return url;
+  return url + (url.includes('?') ? '&' : '?') + 'v=' + v;
+}
+
 function buildVeritasCard(p) {
   const ribbonHtml = p.ribbon
     ? `<span class="card-ribbon ${p.ribbonClass}">${escHtml(p.ribbon)}</span>` : '';
@@ -173,7 +180,7 @@ function buildVeritasCard(p) {
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
       </button>
       <div class="card-image-wrap">
-        <img src="${escHtml(p.image)}" alt="${escHtml(p.name)} by ${escHtml(p.brand)}" loading="lazy" />
+        <img src="${escHtml(assetUrl(p.image))}" alt="${escHtml(p.name)} by ${escHtml(p.brand)}" loading="lazy" />
       </div>
       <div class="card-body">
         <p class="card-brand">${escHtml(p.brand)}</p>
@@ -204,7 +211,7 @@ function buildSknCard(p) {
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
       </button>
       <div class="card-image-wrap">
-        <img src="${escHtml(p.image)}" alt="${escHtml(p.name)} by ${escHtml(p.brand)}" loading="lazy" />
+        <img src="${escHtml(assetUrl(p.image))}" alt="${escHtml(p.name)} by ${escHtml(p.brand)}" loading="lazy" />
       </div>
       <div class="card-body">
         <p class="card-brand">${escHtml(p.brand)}</p>
@@ -240,7 +247,7 @@ function buildMarketCard(p) {
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
       </button>
       <div class="card-image-wrap">
-        <img src="${escHtml(p.image)}" alt="${escHtml(p.name)} by ${escHtml(p.brand)}" loading="lazy" />
+        <img src="${escHtml(assetUrl(p.image))}" alt="${escHtml(p.name)} by ${escHtml(p.brand)}" loading="lazy" />
       </div>
       <div class="card-body">
         <p class="card-brand">${escHtml(p.brand)}</p>

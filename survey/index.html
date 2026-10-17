@@ -18,75 +18,14 @@
   <meta http-equiv="Pragma" content="no-cache" />
   <meta http-equiv="Expires" content="0" />
 
-  <!-- Automatic script/style update detector & cache-buster -->
+  <!-- Dynamic Cache-Buster: Forces the browser to NEVER serve CSS or JS from disk cache -->
   <script>
-    (function () {
-      var STORAGE_KEY = 'og_derma_version';
-      var isReloading = false;
-
-      function triggerReload(newVersion) {
-        if (isReloading) return;
-        isReloading = true;
-        localStorage.setItem(STORAGE_KEY, newVersion);
-        console.log('[AutoReload] New version detected (' + newVersion + '). Reloading with fresh cache...');
-        
-        // Force uncached reload by attaching version parameter
-        var url = new URL(window.location.href);
-        url.searchParams.set('_v', newVersion);
-        window.location.replace(url.toString());
-      }
-
-      function checkForUpdates() {
-        // 1. Check version.json bypassing browser cache
-        fetch('version.json?_t=' + Date.now(), { cache: 'no-store' })
-          .then(function (res) {
-            if (!res.ok) return null;
-            return res.json();
-          })
-          .then(function (data) {
-            if (!data || !data.version) return;
-            var currentVersion = localStorage.getItem(STORAGE_KEY);
-            if (currentVersion && currentVersion !== data.version) {
-              triggerReload(data.version);
-            } else if (!currentVersion) {
-              localStorage.setItem(STORAGE_KEY, data.version);
-            }
-          })
-          .catch(function () {});
-
-        // 2. Also check if style.css has a new ETag / Last-Modified
-        fetch('css/style.css?_check=' + Date.now(), { method: 'HEAD', cache: 'no-store' })
-          .then(function (res) {
-            var etag = res.headers.get('ETag') || res.headers.get('Last-Modified');
-            if (etag) {
-              var lastEtag = localStorage.getItem('og_derma_css_fingerprint');
-              if (lastEtag && lastEtag !== etag) {
-                localStorage.setItem('og_derma_css_fingerprint', etag);
-                triggerReload(Date.now().toString());
-              } else if (!lastEtag) {
-                localStorage.setItem('og_derma_css_fingerprint', etag);
-              }
-            }
-          })
-          .catch(function () {});
-      }
-
-      // Check immediately on load
-      checkForUpdates();
-
-      // Check whenever user switches back to this tab
-      document.addEventListener('visibilitychange', function () {
-        if (document.visibilityState === 'visible') {
-          checkForUpdates();
-        }
-      });
-
-      // Poll periodically every 30 seconds
-      setInterval(checkForUpdates, 30000);
-    })();
+    window.__ASSET_VERSION__ = Date.now();
+    document.write('<link rel="stylesheet" href="css/style.css?v=' + window.__ASSET_VERSION__ + '">');
   </script>
-
-  <link rel="stylesheet" href="css/style.css?v=20261017_v1" />
+  <noscript>
+    <link rel="stylesheet" href="css/style.css" />
+  </noscript>
 </head>
 
 <body>
@@ -283,9 +222,15 @@
     </div>
   </footer>
 
-  <!-- Scripts -->
-  <script src="js/survey.js?v=20261017_v1"></script>
-  <script src="js/app.js?v=20261017_v1"></script>
+  <!-- Scripts: Loaded dynamically with timestamp to guarantee fresh execution -->
+  <script>
+    document.write('<script src="js/survey.js?v=' + window.__ASSET_VERSION__ + '"><\/script>');
+    document.write('<script src="js/app.js?v=' + window.__ASSET_VERSION__ + '"><\/script>');
+  </script>
+  <noscript>
+    <script src="js/survey.js"></script>
+    <script src="js/app.js"></script>
+  </noscript>
 </body>
 
 </html>
