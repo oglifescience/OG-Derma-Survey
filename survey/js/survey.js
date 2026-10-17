@@ -18,8 +18,9 @@ const SURVEY_QUESTIONS = [
   },
   {
     id: 'q2',
-    type: 'stars',
+    type: 'likert',
     text: 'Knowing exactly what\'s in your cleanser matters to me.',
+    ends: ['Strongly Disagree', 'Strongly Agree'],
     options: [
       { value: '1', label: 'Not at all' },
       { value: '2', label: 'Not really' },
@@ -44,7 +45,7 @@ const SURVEY_QUESTIONS = [
   {
     id: 'q4',
     type: 'scale',
-    text: 'How appealing is this to you: You tell us your skin type and your skin concern — we give you the product for that. No actives listed on the front. No marketing jargon.',
+    text: 'How appealing is this to you Your skin. Your problem. We’ve got the product. No marketing jargon',
     options: [
       { value: '1', label: 'Not appealing', hint: 'I want full ingredient details' },
       { value: '2', label: 'Slightly', hint: 'Actives matter to me' },
@@ -55,14 +56,15 @@ const SURVEY_QUESTIONS = [
   },
   {
     id: 'q5',
-    type: 'scale',
+    type: 'likert',
     text: 'How likely are you to recommend this product to a friend?',
+    ends: ['Never', 'Definitely!'],
     options: [
-      { value: '1', label: 'Never', hint: '' },
-      { value: '2', label: 'Unlikely', hint: '' },
-      { value: '3', label: 'Maybe', hint: '' },
-      { value: '4', label: 'Likely', hint: '' },
-      { value: '5', label: 'Definitely!', hint: '' },
+      { value: '1', label: 'Never' },
+      { value: '2', label: 'Unlikely' },
+      { value: '3', label: 'Maybe' },
+      { value: '4', label: 'Likely' },
+      { value: '5', label: 'Definitely!' },
     ],
   },
   {
@@ -383,11 +385,14 @@ function renderQuestion(index) {
     return;
   }
 
-  // ── Likert (1–6 agree/disagree) ────────────────────────────
+  // ── Likert (agree/disagree or linear numeric scale) ────────
   if (q.type === 'likert') {
     const saved = surveyState.answers[q.id] || null;
+    const leftEnd = q.ends ? q.ends[0] : 'Strongly Disagree';
+    const rightEnd = q.ends ? q.ends[1] : 'Strongly Agree';
+
     let html = '<div class="likert-wrap">';
-    html += '<div class="likert-ends"><span>Strongly Disagree</span><span>Strongly Agree</span></div>';
+    html += `<div class="likert-ends"><span>${escHtml(leftEnd)}</span><span>${escHtml(rightEnd)}</span></div>`;
     html += '<div class="likert-row">';
     q.options.forEach(opt => {
       const sel = saved === opt.value ? 'selected' : '';
@@ -396,25 +401,30 @@ function renderQuestion(index) {
     html += '</div>';
     if (saved) {
       const selOpt = q.options.find(o => o.value === saved);
-      html += `<div class="likert-selected-label" id="likert-lbl">${escHtml(selOpt ? selOpt.label : '')}</div>`;
+      html += `<div class="likert-selected-label">${escHtml(selOpt ? selOpt.label : '')}</div>`;
     } else {
-      html += '<div class="likert-selected-label" id="likert-lbl"></div>';
+      html += '<div class="likert-selected-label"></div>';
     }
     html += '</div>';
     optionsContainer.innerHTML = html;
+
+    const lbl = optionsContainer.querySelector('.likert-selected-label');
     optionsContainer.querySelectorAll('.likert-btn').forEach(btn => {
       btn.addEventListener('click', () => {
         surveyState.answers[q.id] = btn.dataset.value;
         optionsContainer.querySelectorAll('.likert-btn').forEach(b => b.classList.remove('selected'));
         btn.classList.add('selected');
         const selOpt = q.options.find(o => o.value === btn.dataset.value);
-        document.getElementById('likert-lbl').textContent = selOpt ? selOpt.label : '';
+        if (lbl) {
+          lbl.textContent = selOpt ? selOpt.label : '';
+        }
         btnNext.disabled = false;
       });
     });
     btnBack.style.visibility = 'visible';
     btnNext.disabled = !saved;
-    btnNext.textContent = 'Next →';
+    const isLast = index === total - 1;
+    btnNext.textContent = isLast ? 'Submit ✓' : 'Next →';
     return;
   }
 
