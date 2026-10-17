@@ -32,7 +32,7 @@ const SURVEY_QUESTIONS = [
   {
     id: 'q3',
     type: 'likert',
-    text: 'My skin has a specific type AND a specific concern — I want a product built for that exact combination, not a generic formula.',
+    text: 'I want skincare tailored to my exact skin needs (skin concern + skin type)',
     options: [
       { value: '1', label: 'Strongly Disagree', hint: 'Generic products work fine' },
       { value: '2', label: 'Disagree', hint: '' },
@@ -45,7 +45,7 @@ const SURVEY_QUESTIONS = [
   {
     id: 'q4',
     type: 'scale',
-    text: 'How appealing is this to you Your skin. Your problem. We’ve got the product. No marketing jargon',
+    text: 'How appealing is this to you? Your skin. Your problem. We’ve got the product. No marketing jargon, Just Simple products',
     options: [
       { value: '1', label: 'Not appealing', hint: 'I want full ingredient details' },
       { value: '2', label: 'Slightly', hint: 'Actives matter to me' },

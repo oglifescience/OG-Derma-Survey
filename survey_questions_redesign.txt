@@ -60,7 +60,7 @@ QUESTION 3 (Q3) — AGREE / DISAGREE SCALE (1 to 6)
 --------------------------------------------
 Type: 6-point Likert (no neutral midpoint — forces a lean)
 
-"My skin has a specific type AND a specific concern — I want a product built for that exact combination, not a generic formula."
+"I want skincare tailored to my exact skin needs (skin concern + skin type)"
 
 Scale:
   1 — Strongly Disagree  (Generic products work fine for me)
@@ -82,7 +82,7 @@ QUESTION 4 (Q4) — APPEAL RATING (1 to 5)
 --------------------------------------------
 Type: 5-level appeal / interest scale
 
-"How appealing is this to you Your skin. Your problem. We’ve got the product. No marketing jargon"
+"How appealing is this to you? Your skin. Your problem. We’ve got the product. No marketing jargon, Just Simple products"
 
 Scale:
   1 — Not appealing at all     (I want full ingredient details upfront)
