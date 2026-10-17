@@ -181,7 +181,7 @@ function renderPreview() {
   `;
   if (surveyState.product === 'veritas') {
     previewContent += `
-      <div class="preview-carousel">
+      <div class="preview-carousel preview-carousel--veritas">
         <img src="assets/images%20of%20concepts/IMG_1295.jpg?v=${Date.now()}" alt="Veritas Concept 1">
         <img src="assets/images%20of%20concepts/IMG_1296.jpg?v=${Date.now()}" alt="Veritas Concept 2">
         <div class="landscape-wrapper" style="flex: 0 0 100%; height: 50vh; overflow: hidden; scroll-snap-align: start; background-color: rgb(229, 239, 255); display: flex; align-items: center; justify-content: center;">
@@ -339,7 +339,7 @@ function renderQuestion(index) {
           maxlength="200"
           rows="4"
         >${escHtml(saved)}</textarea>
-        <div class="open-text-hint">Keep it short — one line is perfect ✦</div>
+        <div class="open-text-hint">Your very first unfiltered thought! ✦</div>
       </div>
     `;
     const ta = document.getElementById(`open-text-${q.id}`);

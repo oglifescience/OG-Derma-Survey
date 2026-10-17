@@ -1967,6 +1967,7 @@ button {
 .preview-carousel {
   display: flex;
   overflow-x: auto;
+  overflow-y: hidden;
   scroll-snap-type: x mandatory;
   scrollbar-width: none;
   -ms-overflow-style: none;
@@ -1987,6 +1988,12 @@ button {
   object-position: center;
   scroll-snap-align: start;
   display: block;
+}
+
+/* Zoom in slightly on Veritas first image */
+.preview-carousel--veritas > img:first-child {
+  transform: scale(1.15);
+  transition: transform var(--t-med);
 }
 
 .carousel-hint {
