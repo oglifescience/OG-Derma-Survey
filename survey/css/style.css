@@ -1538,6 +1538,18 @@ button {
   line-height: 1.3;
 }
 
+/* Other text input under pick options */
+.pick-other-wrap {
+  margin-top: 12px;
+  animation: fade-in 250ms ease;
+}
+
+.pick-other-wrap .open-text-input {
+  padding: 12px 14px;
+  font-size: 0.88rem;
+  border-radius: var(--radius-md);
+}
+
 /* Modal nav */
 .modal-nav {
   display: flex;

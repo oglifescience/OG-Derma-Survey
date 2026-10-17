@@ -73,7 +73,7 @@ const SURVEY_QUESTIONS = [
       { value: 'Read label', label: '📖', sublabel: 'Read the label' },
       { value: 'QR video', label: '📱', sublabel: 'Scan QR → short video' },
       { value: 'Derm / influencer', label: '👩‍⚕️', sublabel: 'Trust a derm / influencer' },
-      { value: 'Just want it to work', label: '✨', sublabel: 'I just want it to work' },
+      { value: 'Other', label: '✍️', sublabel: 'Other' },
     ],
   },
 ];
@@ -451,25 +451,71 @@ function renderQuestion(index) {
   // ── Pick (emoji quick-pick) ────────────────────────────────
   if (q.type === 'pick') {
     const saved = surveyState.answers[q.id] || null;
+    const isOtherSaved = saved && (saved === 'Other' || saved.startsWith('Other:'));
+    const otherText = isOtherSaved && saved.startsWith('Other:') ? saved.replace(/^Other:\s*/, '') : '';
+
     let html = '<div class="pick-wrap">';
     q.options.forEach(opt => {
-      const sel = saved === opt.value ? 'selected' : '';
+      let isSel = false;
+      if (opt.value === 'Other') {
+        isSel = isOtherSaved;
+      } else {
+        isSel = saved === opt.value;
+      }
+      const selClass = isSel ? 'selected' : '';
       html += `
-        <button type="button" class="pick-btn ${sel}" data-value="${escHtml(opt.value)}">
+        <button type="button" class="pick-btn ${selClass}" data-value="${escHtml(opt.value)}">
           <span class="pick-emoji">${opt.label}</span>
           <span class="pick-sublabel">${escHtml(opt.sublabel)}</span>
         </button>`;
     });
     html += '</div>';
+
+    // Other text field (shown when "Other" is selected)
+    html += `
+      <div class="pick-other-wrap" id="pick-other-wrap" style="display: ${isOtherSaved ? 'block' : 'none'};">
+        <input
+          type="text"
+          id="pick-other-input"
+          class="open-text-input"
+          placeholder="Please tell us how you prefer to learn…"
+          maxlength="150"
+          value="${escHtml(otherText)}"
+        />
+      </div>
+    `;
+
     optionsContainer.innerHTML = html;
+
+    const otherWrap = document.getElementById('pick-other-wrap');
+    const otherInput = document.getElementById('pick-other-input');
+
     optionsContainer.querySelectorAll('.pick-btn').forEach(btn => {
       btn.addEventListener('click', () => {
-        surveyState.answers[q.id] = btn.dataset.value;
         optionsContainer.querySelectorAll('.pick-btn').forEach(b => b.classList.remove('selected'));
         btn.classList.add('selected');
+
+        if (btn.dataset.value === 'Other') {
+          otherWrap.style.display = 'block';
+          const typed = otherInput.value.trim();
+          surveyState.answers[q.id] = typed ? `Other: ${typed}` : 'Other';
+          otherInput.focus();
+        } else {
+          otherWrap.style.display = 'none';
+          surveyState.answers[q.id] = btn.dataset.value;
+        }
+
         btnNext.disabled = false;
       });
     });
+
+    if (otherInput) {
+      otherInput.addEventListener('input', () => {
+        const typed = otherInput.value.trim();
+        surveyState.answers[q.id] = typed ? `Other: ${typed}` : 'Other';
+      });
+    }
+
     btnBack.style.visibility = 'visible';
     btnNext.disabled = !saved;
     const isLast = index === total - 1;
